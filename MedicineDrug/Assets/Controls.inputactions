@@ -3,7 +3,7 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "P1",
+            "name": "Gameplay",
             "id": "9b6c7821-cb34-4791-be3d-4fb18dd8dfed",
             "actions": [
                 {
@@ -14,6 +14,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Lock",
+                    "type": "Button",
+                    "id": "b63eee18-c7b7-474b-a3c9-fa6a6017a944",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "116a1ea3-1148-4588-ae49-83fcbfcce263",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "c3338ef8-bfd1-4f61-aacf-181d49dc2f72",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -71,78 +98,50 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "P2",
-            "id": "bf93b944-a277-4ba6-8a59-d81b2ee2d28c",
-            "actions": [
+                },
                 {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "2ae24c01-4db2-4e19-a4d4-a32be486e4e0",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "064236e3-c275-4425-88fd-7fd5d99e5dfb",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "1aae95f7-330d-4eae-953a-ceb32ee0e2e6",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Controller",
                     "action": "Movement",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "b4369f03-860a-4e22-b950-2c97532fd322",
-                    "path": "<Keyboard>/upArrow",
+                    "name": "",
+                    "id": "ff0cb0f5-bb39-406c-ac18-4faed64c8a6e",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "groups": ";Controller",
+                    "action": "Lock",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "21d3bfec-9f2c-47e3-83e6-fe92cd85f2c5",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "",
+                    "id": "44821682-e0e1-471f-a80a-a90ef0b5cda6",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "groups": ";Controller",
+                    "action": "Interact",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "bff16e86-46dd-4833-a144-9efba7ac8c97",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "",
+                    "id": "04346ba5-2699-4186-b565-029ae94e5bc6",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "groups": ";Controller",
+                    "action": "PickUp",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "60c579ce-2a7f-4dcd-8b55-55269fb72d15",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -154,6 +153,17 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }
