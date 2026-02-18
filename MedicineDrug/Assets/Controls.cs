@@ -220,6 +220,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ba122355-78d7-4ca6-bb44-a5be941b319c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""04346ba5-2699-4186-b565-029ae94e5bc6"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",

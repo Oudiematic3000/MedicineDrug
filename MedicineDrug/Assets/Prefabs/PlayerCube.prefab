@@ -558,7 +558,19 @@ MonoBehaviour:
     m_ActionId: b63eee18-c7b7-474b-a3c9-fa6a6017a944
     m_ActionName: 'Gameplay/Lock[/DualShock4GamepadHID/leftShoulder]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8400844523517658650}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 116a1ea3-1148-4588-ae49-83fcbfcce263
     m_ActionName: 'Gameplay/Interact[/DualShock4GamepadHID/buttonWest]'
   - m_PersistentCalls:

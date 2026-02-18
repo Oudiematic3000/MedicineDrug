@@ -22,7 +22,6 @@ public class GrabHitbox : MonoBehaviour
         Usable usable;
         if (!other.GetComponent<Usable>()) return;
         else usable = other.GetComponent<Usable>();
-        usable.OnPickup();
         usable.objectRenderer.material = highlightMaterial;
         highlightedUsable=usable;
     }
@@ -37,6 +36,11 @@ public class GrabHitbox : MonoBehaviour
 
     public void PickupAction()
     {
-        if (highlightedUsable is Tool) highlightedUsable.OnPickup();
+        if (highlightedUsable is Tool) highlightedUsable.GetComponent<Tool>().OnPickup(); 
+    }
+
+    public void InteractAction(bool Action)
+    {
+        if(highlightedUsable is Interactable) highlightedUsable.GetComponent<Interactable>().OnInteract(Action);
     }
 }

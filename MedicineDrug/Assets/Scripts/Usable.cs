@@ -19,8 +19,5 @@ public abstract class Usable : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public abstract void OnPickup();
-    
+    }    
 }

@@ -26,7 +26,8 @@ public class Player : MonoBehaviour, IGameplayActions
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (context.performed) grabHitbox.InteractAction(true);
+        if(context.canceled) grabHitbox.InteractAction(false);
     }
 
     public void OnLock(InputAction.CallbackContext context)

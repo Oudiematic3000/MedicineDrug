@@ -509,6 +509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278874fc4d84e1442ab5fea9fb78c025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabHitbox
+  highlightMaterial: {fileID: 0}
+  highlightedUsable: {fileID: 0}
 --- !u!1 &1385531632
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +637,7 @@ GameObject:
   - component: {fileID: 2083529193}
   - component: {fileID: 2083529192}
   - component: {fileID: 2083529196}
+  - component: {fileID: 2083529197}
   m_Layer: 0
   m_Name: Scalpel
   m_TagString: Untagged
@@ -747,6 +750,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907e9512d9a87524daa251ecb45ae271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tool
+  originalMaterial: {fileID: 0}
+  objectRenderer: {fileID: 0}
+--- !u!114 &2083529197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083529191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd6c0d902b89ff47b5fdec465c56b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  originalMaterial: {fileID: 0}
+  objectRenderer: {fileID: 0}
+  interactTime: 4
+  neededTool: {fileID: 0}
+  interacting: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
