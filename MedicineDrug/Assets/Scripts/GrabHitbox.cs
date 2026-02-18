@@ -4,6 +4,7 @@ public class GrabHitbox : MonoBehaviour
 {
     Player player;
     [SerializeField] Material highlightMaterial;
+    public Usable highlightedUsable;
     private void Awake()
     {
         player = GetComponentInParent<Player>();
@@ -23,6 +24,7 @@ public class GrabHitbox : MonoBehaviour
         else usable = other.GetComponent<Usable>();
         usable.OnPickup();
         usable.objectRenderer.material = highlightMaterial;
+        highlightedUsable=usable;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -30,5 +32,11 @@ public class GrabHitbox : MonoBehaviour
         if (!other.GetComponent<Usable>()) return;
         else usable = other.GetComponent<Usable>();
         usable.objectRenderer.material=usable.originalMaterial;
+        highlightedUsable = null;
+    }
+
+    public void PickupAction()
+    {
+        if (highlightedUsable is Tool) highlightedUsable.OnPickup();
     }
 }

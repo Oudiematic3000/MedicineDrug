@@ -5,6 +5,7 @@ using static Controls;
 public class Player : MonoBehaviour, IGameplayActions
 {
     Rigidbody rb;
+    [SerializeField] GrabHitbox grabHitbox;
 
     Vector2 moveInput;
 
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        grabHitbox.PickupAction();
     }
 
     void Move()
