@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Usable : MonoBehaviour
+public abstract class Usable : MonoBehaviour
 {
     //replace with 
     void Start()
@@ -13,4 +13,7 @@ public class Usable : MonoBehaviour
     {
         
     }
+
+    public abstract void OnPickup();
+    
 }
