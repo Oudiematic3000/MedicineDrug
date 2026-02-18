@@ -20,5 +20,6 @@ public class GrabHitbox : MonoBehaviour
         Usable usable;
         if (!other.GetComponent<Usable>()) return;
         else usable = other.GetComponent<Usable>();
+        usable.OnPickup();
     }
 }
