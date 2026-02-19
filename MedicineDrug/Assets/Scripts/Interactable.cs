@@ -4,14 +4,16 @@ public class Interactable : Usable
 {
     public float interactTime;
     public Tool neededTool;
-    public bool interacting=false;
+    public bool interacting=false, completed=false;
     float progress=0f;
     public void OnInteract(bool action)
     {
+        if(!completed)
         interacting = action;
     }
     private void Update()
     {
+        if (completed) return;
         if (interacting && progress<=interactTime)
         {
             progress += Time.deltaTime;
@@ -20,10 +22,17 @@ public class Interactable : Usable
         {
             progress -= Time.deltaTime/1.5f;
         }
-        else
+        else if(progress>=interactTime)
         {
             OnComplete();
-            Debug.Log("Complete");
+            Debug.Log("complete");
+            completed = true;
+            progress = 0f;
+            interacting=false;
+            LeanTween.delayedCall(1f, () =>
+            {
+                completed= false;   
+            });
         }
     }
 
