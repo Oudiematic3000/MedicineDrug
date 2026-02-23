@@ -45,8 +45,6 @@ GameObject:
   - component: {fileID: 9141483349939984293}
   - component: {fileID: 4718234074627934663}
   - component: {fileID: 1696066177721659736}
-  - component: {fileID: 4868389827070611143}
-  - component: {fileID: 2621651448917750399}
   m_Layer: 0
   m_Name: handle
   m_TagString: Untagged
@@ -161,55 +159,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Trolley
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
+  template: {fileID: 0}
   droppableOnFloor: 1
   trolleyParent: {fileID: 2724119632246388833}
   rotationSpeed: 2
   moveSpeed: 7
   acceleration: 20
   wheels: []
---- !u!54 &4868389827070611143
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3077036979312435252}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!138 &2621651448917750399
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3077036979312435252}
-  serializedVersion: 1
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &3168236354057689838
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,5 +829,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 2
