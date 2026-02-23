@@ -9,7 +9,10 @@ public class Tool : Usable
     }
 
     public virtual void OnPutDown(Player player)
+    //[SerializeField] public UsableTemplate template;
+    
+    public void OnPickup()
     {
-        print("Picked up!");
+        print("Interact Time is:" + template.interactTime);
     }
 }
