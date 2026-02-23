@@ -37,16 +37,16 @@ public class GrabHitbox : MonoBehaviour
         usableGO = null;
     }
 
-    public void PickupAction()
+    public void PickupAction(Player player)
     {
         if (usableGO.GetComponent<Tool>())
         {
             Tool tool = usableGO.GetComponent<Tool>();
-            tool.OnPickup();
+            tool.OnPickup(player);
         }
     }
-
-    public void InteractAction(bool Action)
+   
+    public void InteractAction(bool Action, Player player)
     {
         if (usableGO.GetComponent<Interactable>()) {
             Interactable interactable = usableGO.GetComponent<Interactable>();

@@ -351,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabHitbox
   highlightMaterial: {fileID: 0}
   highlightedUsable: {fileID: 0}
+  usableGO: {fileID: 0}
 --- !u!1 &8954815800059986984
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +479,7 @@ Rigidbody:
   m_GameObject: {fileID: 8954815800059986984}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -509,9 +510,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   grabHitbox: {fileID: 7604392126579658088}
-  rotationTime: 4
-  moveSpeed: 5
-  accelerationTime: 4
+  hand: {fileID: 5020406465609267425}
+  rotationSpeed: 6.2
+  moveSpeed: 6
+  acceleration: 90
 --- !u!114 &3276851429180215151
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,14 +6,19 @@ public class Player : MonoBehaviour, IGameplayActions
 {
     Rigidbody rb;
     [SerializeField] GrabHitbox grabHitbox;
+    public Transform hand;
 
     Vector2 moveInput;
 
-    public float rotationTime, moveSpeed, accelerationTime;
+    public float rotationSpeed, moveSpeed, acceleration;
+    float defaultRotationSpeed, defaultMoveSpeed, defaultAcceleration;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        defaultRotationSpeed = rotationSpeed;
+        defaultMoveSpeed=moveSpeed;
+        defaultAcceleration = acceleration;
     }
  
     void Start()
@@ -22,12 +27,15 @@ public class Player : MonoBehaviour, IGameplayActions
     }
     void Update()
     {
+    }
+    private void FixedUpdate()
+    {
         Move();
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed) grabHitbox.InteractAction(true);
-        if(context.canceled) grabHitbox.InteractAction(false);
+        if (context.performed) grabHitbox.InteractAction(true, this);
+        if(context.canceled) grabHitbox.InteractAction(false, this);
     }
 
     public void OnLock(InputAction.CallbackContext context)
@@ -44,16 +52,30 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        grabHitbox.PickupAction();
+        grabHitbox.PickupAction(this);
     }
 
     void Move()
     {
         if(moveInput==Vector2.zero)return;
-        Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y);
+        Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
-        transform.rotation =Quaternion.Slerp(transform.rotation, targetRotation,rotationTime*Time.deltaTime);
+        transform.rotation =Quaternion.Slerp(transform.rotation, targetRotation,rotationSpeed*Time.deltaTime);
 
-        rb.linearVelocity = Vector3.Lerp(transform.forward, moveInput3 * moveSpeed, accelerationTime*Time.deltaTime);
+        rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration*Time.deltaTime);
+        print(rb.linearVelocity.magnitude);
+    }
+
+    public void SetTemporaryMovement(float rotationTime, float moveSpeed, float accelerationTime)
+    {
+        this.rotationSpeed=rotationTime;
+        this.moveSpeed=moveSpeed;
+        this.acceleration=accelerationTime;
+    }
+    public void RevertMovementToDefault()
+    {
+        rotationSpeed = defaultRotationSpeed;
+        moveSpeed = defaultMoveSpeed;
+        acceleration = defaultAcceleration;
     }
 }
