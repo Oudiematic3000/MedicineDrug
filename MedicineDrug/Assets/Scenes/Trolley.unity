@@ -735,6 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
+  template: {fileID: 0}
   interactTime: 4
   neededTool: {fileID: 0}
   interacting: 0
@@ -753,6 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tool
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
+  template: {fileID: 0}
   droppableOnFloor: 0
 --- !u!1001 &5568790594303639615
 PrefabInstance:
@@ -809,6 +811,10 @@ PrefabInstance:
     - target: {fileID: 2724119632246388833, guid: 6e9be11757b323c4bba178e1e2c85236, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400497547332306379, guid: 6e9be11757b323c4bba178e1e2c85236, type: 3}
+      propertyPath: m_Mass
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2621651448917750399, guid: 6e9be11757b323c4bba178e1e2c85236, type: 3}
