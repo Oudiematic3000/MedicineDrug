@@ -5,6 +5,8 @@ public abstract class Usable : MonoBehaviour
     //replace with outline shader
     public Material originalMaterial;
     public Renderer objectRenderer;
+    public UsableTemplate template;
+    
     private void Awake()
     {
         objectRenderer = GetComponent<Renderer>();
