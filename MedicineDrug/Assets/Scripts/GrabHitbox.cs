@@ -33,6 +33,7 @@ public class GrabHitbox : MonoBehaviour
         if (!other.GetComponent<Usable>()) return;
         else usable = other.GetComponent<Usable>();
         usable.objectRenderer.material=usable.originalMaterial;
+        CancelInteraction();
         highlightedUsable = null;
         usableGO = null;
     }
@@ -51,6 +52,13 @@ public class GrabHitbox : MonoBehaviour
         if (usableGO.GetComponent<Interactable>()) {
             Interactable interactable = usableGO.GetComponent<Interactable>();
             interactable.OnInteract(Action); 
+        }
+    }
+    public void CancelInteraction()
+    {
+        if (usableGO.GetComponent<Interactable>())
+        {
+            usableGO.GetComponent<Interactable>().OnInteract(false);
         }
     }
 }

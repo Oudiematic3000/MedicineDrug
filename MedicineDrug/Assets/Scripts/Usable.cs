@@ -10,11 +10,11 @@ public abstract class Usable : MonoBehaviour
     private void Awake()
     {
         objectRenderer = GetComponent<Renderer>();
-        originalMaterial = objectRenderer.material;
-    }
-    void Start()
-    {
-        
+        if (objectRenderer == null)
+        {
+            objectRenderer = GetComponentInChildren<Renderer>();
+        }
+            originalMaterial = objectRenderer.material;
     }
 
     // Update is called once per frame

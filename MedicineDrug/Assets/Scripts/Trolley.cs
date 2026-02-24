@@ -33,6 +33,7 @@ public class Trolley : Tool
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
         rb.detectCollisions = true;
+
     }
 
     void EnableWheels()

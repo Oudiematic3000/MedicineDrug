@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9f017631e8f2a4aa82023826df9a13, type: 3}
   m_Name: UsableTemplate
   m_EditorClassIdentifier: Assembly-CSharp::UsableTemplate
-  interactTime: 0
-  toolNeeded: 0
+  interactTime: 4
+  toolNeeded: {fileID: 0}
   droppableOnFloor: 0
