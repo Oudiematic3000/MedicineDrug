@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, IGameplayActions
     Rigidbody rb;
     [SerializeField] GrabHitbox grabHitbox;
     public Transform hand;
-
+    public Rigidbody physicsHandle;
     Vector2 moveInput;
 
     public float rotationSpeed, moveSpeed, acceleration;
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour, IGameplayActions
     private void FixedUpdate()
     {
         Move();
+        physicsHandle.MovePosition(hand.position);
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
