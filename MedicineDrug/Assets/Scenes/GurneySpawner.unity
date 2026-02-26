@@ -1386,6 +1386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   grabHitbox: {fileID: 2066926841}
   hand: {fileID: 2066926839}
+  anim: {fileID: 0}
   rotationSpeed: 6
   moveSpeed: 6
   acceleration: 90
@@ -1483,7 +1484,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324060300}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 295efcab0a62f59429e8b417889b448c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
