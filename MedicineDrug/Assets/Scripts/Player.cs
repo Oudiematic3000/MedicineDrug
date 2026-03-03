@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IGameplayActions
     Rigidbody rb;
     [SerializeField] GrabHitbox grabHitbox;
     public Transform hand;
+    public Animator anim;
 
     Vector2 moveInput;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour, IGameplayActions
         defaultRotationSpeed = rotationSpeed;
         defaultMoveSpeed=moveSpeed;
         defaultAcceleration = acceleration;
+        anim = GetComponent<Animator>();
     }
  
     void Start()
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+        
         if(context.performed)
         moveInput = context.ReadValue<Vector2>();
         if (context.canceled) moveInput = Vector2.zero;
@@ -58,6 +61,8 @@ public class Player : MonoBehaviour, IGameplayActions
 
     void Move()
     {
+        anim.SetFloat("speed", moveInput.magnitude);
+        print(moveInput);
         if(moveInput==Vector2.zero)return;
         Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
