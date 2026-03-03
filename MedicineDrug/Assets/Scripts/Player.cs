@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IGameplayActions
         defaultRotationSpeed = rotationSpeed;
         defaultMoveSpeed=moveSpeed;
         defaultAcceleration = acceleration;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
  
     void Start()
