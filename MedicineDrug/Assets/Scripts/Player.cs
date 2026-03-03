@@ -9,6 +9,7 @@ public class Player : MonoBehaviour, IGameplayActions
     public Transform hand;
     public Animator anim;
 
+    public Rigidbody physicsHandle;
     Vector2 moveInput;
 
     public float rotationSpeed, moveSpeed, acceleration;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour, IGameplayActions
     private void FixedUpdate()
     {
         Move();
+        physicsHandle.MovePosition(hand.position);
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
