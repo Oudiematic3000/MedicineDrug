@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Controls;
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour, IGameplayActions
     public float rotationSpeed, moveSpeed, acceleration;
     float defaultRotationSpeed, defaultMoveSpeed, defaultAcceleration;
 
+    public static event Action oninteract;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,6 +46,8 @@ public class Player : MonoBehaviour, IGameplayActions
         if (context.performed) grabHitbox.InteractAction(true, this);
         else
         if (context.canceled) grabHitbox.InteractAction(false, this);
+        
+        oninteract?.Invoke();
     }
 
     public void OnLock(InputAction.CallbackContext context)
