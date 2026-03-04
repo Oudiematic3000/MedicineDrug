@@ -162,10 +162,15 @@ MonoBehaviour:
   template: {fileID: 0}
   droppableOnFloor: 1
   trolleyParent: {fileID: 2724119632246388833}
+  trolleyBody: {fileID: 9005631200716339123}
   rotationSpeed: 2
   moveSpeed: 7
   acceleration: 20
   wheels: []
+  held: 1
+  joint: {fileID: 0}
+  trolleyRB: {fileID: 5400497547332306379}
+  holdingPlayer: {fileID: 0}
 --- !u!1 &3168236354057689838
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +817,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9005631200716339123}
   serializedVersion: 5
-  m_Mass: 90
+  m_Mass: 900
   m_LinearDamping: 0.34
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: -10, z: 0}
@@ -829,5 +834,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 0
   m_CollisionDetection: 2

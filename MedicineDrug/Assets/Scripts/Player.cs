@@ -4,7 +4,7 @@ using static Controls;
 
 public class Player : MonoBehaviour, IGameplayActions
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     [SerializeField] GrabHitbox grabHitbox;
     public Transform hand;
     public Animator anim;
@@ -40,7 +40,8 @@ public class Player : MonoBehaviour, IGameplayActions
     {
         print("INTERACTACTIONCALLED");
         if (context.performed) grabHitbox.InteractAction(true, this);
-        if(context.canceled) grabHitbox.InteractAction(false, this);
+        else
+        if (context.canceled) grabHitbox.InteractAction(false, this);
     }
 
     public void OnLock(InputAction.CallbackContext context)
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
+        if( context.performed)
         grabHitbox.PickupAction(this);
     }
 
