@@ -10,6 +10,8 @@ public class Trolley : Tool
     public HingeJoint joint;
     public Rigidbody trolleyRB;
     public Player holdingPlayer;
+
+    public TrolleyJointSettings jointSettings;
     public override void OnPickup(Player player)
     {
         if(holdingPlayer != null)
@@ -55,39 +57,43 @@ public class Trolley : Tool
 
     public void AttachTrolley()
     {
-        holdingPlayer.transform.rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+        holdingPlayer.transform.rotation = Quaternion.LookRotation(trolleyParent.forward, Vector3.up);
 
-        // 2. Move player behind trolley
-        float grabDistance = 0.8f; // tweak as needed
-        Vector3 targetPosition = transform.position - transform.forward * grabDistance;
+        float grabDistance = 0.8f;
+        Vector3 targetPosition = trolleyParent.position - trolleyParent.forward * grabDistance;
+        targetPosition.y = holdingPlayer.transform.position.y;
+
+        holdingPlayer.transform.position = targetPosition;
 
         joint = trolleyBody.AddComponent<HingeJoint>();
         joint.connectedBody = holdingPlayer.physicsHandle;
-        joint.anchor = new Vector3(0f, -0.56f, -0.77f);
-        joint.axis = Vector3.up;
+        joint.anchor = jointSettings.anchor;
+        joint.axis = jointSettings.axis;
 
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = new Vector3(0f, 0f, 0.21f);
+        joint.autoConfigureConnectedAnchor = jointSettings.autoConfigureConnectedAnchor;
+        joint.connectedAnchor = jointSettings.connectedAnchor;
 
-        joint.useSpring = true;
+        joint.useSpring = jointSettings.useSpring;
+
         JointSpring spring = new JointSpring();
-        spring.spring = 10000f;
-        spring.damper = 2000f;
-        spring.targetPosition = 0f;
+        spring.spring = jointSettings.spring;
+        spring.damper = jointSettings.damper;
+        spring.targetPosition = jointSettings.targetPosition;
         joint.spring = spring;
 
-        joint.useMotor = false;
+        joint.useMotor = jointSettings.useMotor;
 
-        joint.useLimits = true;
+        joint.useLimits = jointSettings.useLimits;
+        joint.extendedLimits = jointSettings.extendedLimits;
+
         JointLimits limits = new JointLimits();
-        limits.min = -40f;
-        limits.max = 40f;
-        limits.bounciness = 0f;
-        limits.bounceMinVelocity = 0.2f;
-        limits.contactDistance = 1.6f;
-        joint.limits = limits;
+        limits.min = jointSettings.minLimit;
+        limits.max = jointSettings.maxLimit;
+        limits.bounciness = jointSettings.bounciness;
+        limits.bounceMinVelocity = jointSettings.bounceMinVelocity;
+        limits.contactDistance = jointSettings.contactDistance;
 
-        joint.extendedLimits = true;
+        joint.limits = limits;
     }
 
     public void DetachTrolley()
@@ -103,4 +109,34 @@ public class Trolley : Tool
     {
        
     }
+}
+
+[System.Serializable]
+public class TrolleyJointSettings
+{
+    [Header("Anchor")]
+    public Vector3 anchor = new Vector3(0f, 1.38f, 1.05f);
+    public Vector3 axis = Vector3.up;
+
+    [Header("Connected Anchor")]
+    public bool autoConfigureConnectedAnchor = false;
+    public Vector3 connectedAnchor = new Vector3(0f, 0.1f, 0.09f);
+
+    [Header("Spring")]
+    public bool useSpring = true;
+    public float spring = 10000f;
+    public float damper = 2000f;
+    public float targetPosition = 0f;
+
+    [Header("Motor")]
+    public bool useMotor = false;
+
+    [Header("Limits")]
+    public bool useLimits = true;
+    public bool extendedLimits = true;
+    public float minLimit = -40f;
+    public float maxLimit = 40f;
+    public float bounciness = 1f;
+    public float bounceMinVelocity = 0.2f;
+    public float contactDistance = 1.6f;
 }
