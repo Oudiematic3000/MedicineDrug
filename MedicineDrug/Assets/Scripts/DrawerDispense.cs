@@ -8,9 +8,14 @@ public class DrawerDispense : MonoBehaviour
     public Collider presentObject;
     public Tool toolToSpawn;
 
-    public void Start()
+    private void OnEnable()
     {
-        trolleyPresent = true; //Just for testing the instantiating right now
+        Player.oninteract += spawnTool;
+    }
+
+    private void OnDisable()
+    {
+        Player.oninteract -= spawnTool;
     }
 
     public void Update()
@@ -19,15 +24,19 @@ public class DrawerDispense : MonoBehaviour
         {
             presentObject = trigger.GetComponent<TriggerLogicD>().triggeredCollider;
         
-            if (presentObject.name == "Trolley")
+            if (presentObject.name == "SurgTrolley")
             {
                 trolleyPresent = true;
             }
         }
+    }
 
+    private void spawnTool()
+    {
         if (trolleyPresent)
+        
         {
-            Instantiate(toolToSpawn);
+            Instantiate(toolToSpawn, presentObject.transform);
         }
     }
 }
