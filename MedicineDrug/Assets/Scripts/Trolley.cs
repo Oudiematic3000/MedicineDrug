@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Trolley : Tool
 {
-    [SerializeField] Transform trolleyParent;
+    [SerializeField] Transform trolleyParent, moveLoc;
     [SerializeField] GameObject trolleyBody;
     public float rotationSpeed, moveSpeed, acceleration;
     public WheelCollider[] wheels;
@@ -14,12 +14,7 @@ public class Trolley : Tool
     public TrolleyJointSettings jointSettings;
     public override void OnPickup(Player player)
     {
-        if(holdingPlayer != null)
-        {
-            DetachTrolley();
-            OnPutDown(holdingPlayer);
-            return;
-        }
+        if (holdingPlayer) return;
         base.OnPickup(player);
         
         player.SetTemporaryMovement(rotationSpeed, moveSpeed, acceleration);
@@ -27,15 +22,18 @@ public class Trolley : Tool
         holdingPlayer = player;
         held = true;
         AttachTrolley();
+
     }
 
     public override void OnPutDown(Player player)
     {
         base.OnPutDown(player);
+        DetachTrolley();
         player.RevertMovementToDefault();
         EnableWheels();
         holdingPlayer = null;
         held = false;
+
     }
 
     void DisableWheels()
@@ -57,15 +55,14 @@ public class Trolley : Tool
 
     public void AttachTrolley()
     {
-        holdingPlayer.transform.rotation = Quaternion.LookRotation(trolleyParent.forward, Vector3.up);
+        holdingPlayer.transform.rotation = Quaternion.LookRotation(trolleyBody.transform.forward*-1f, Vector3.up);
 
-        float grabDistance = 0.8f;
-        Vector3 targetPosition = trolleyParent.position - trolleyParent.forward * grabDistance;
+        float grabDistance = -0.8f;
+        Vector3 targetPosition = trolleyBody.transform.position - trolleyBody.transform.forward * grabDistance;
         targetPosition.y = holdingPlayer.transform.position.y;
 
         holdingPlayer.transform.position = targetPosition;
-
-        joint = trolleyBody.AddComponent<HingeJoint>();
+        joint = trolleyParent.gameObject.AddComponent<HingeJoint>();
         joint.connectedBody = holdingPlayer.physicsHandle;
         joint.anchor = jointSettings.anchor;
         joint.axis = jointSettings.axis;

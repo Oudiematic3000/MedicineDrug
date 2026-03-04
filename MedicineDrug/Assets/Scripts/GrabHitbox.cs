@@ -44,6 +44,7 @@ public class GrabHitbox : MonoBehaviour
         {
             Tool tool = usableGO.GetComponent<Tool>();
             tool.OnPickup(player);
+            player.heldTool = tool;
         }
     }
    

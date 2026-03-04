@@ -8,7 +8,7 @@ public class Player : MonoBehaviour, IGameplayActions
     [SerializeField] GrabHitbox grabHitbox;
     public Transform hand;
     public Animator anim;
-
+    public Tool heldTool;
     public Rigidbody physicsHandle;
     Vector2 moveInput;
 
@@ -59,8 +59,16 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        if( context.performed)
-        grabHitbox.PickupAction(this);
+        if(!context.performed)return;
+        if (!heldTool)
+        {
+            grabHitbox.PickupAction(this);
+        }
+        else
+        {
+            heldTool.OnPutDown(this);
+            heldTool=null;
+        }
     }
 
     void Move()
