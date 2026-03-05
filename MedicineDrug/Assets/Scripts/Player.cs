@@ -89,14 +89,12 @@ public class Player : MonoBehaviour, IGameplayActions
     void Move()
     {
         anim.SetFloat("speed", moveInput.magnitude);
-        print(moveInput);
         if(moveInput==Vector2.zero)return;
         Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
         transform.rotation =Quaternion.Slerp(transform.rotation, targetRotation,rotationSpeed*Time.deltaTime);
 
         rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration*Time.deltaTime);
-        print(rb.linearVelocity.magnitude);
     }
 
     public void SetTemporaryMovement(float rotationTime, float moveSpeed, float accelerationTime)

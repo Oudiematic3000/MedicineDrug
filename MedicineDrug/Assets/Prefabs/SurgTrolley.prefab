@@ -130,6 +130,37 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!1 &259833245030526294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5443956556903459039}
+  m_Layer: 0
+  m_Name: ToolSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5443956556903459039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259833245030526294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.00027753468, y: 0.00007006459, z: 0.0074538765}
+  m_LocalScale: {x: 0.006033362, y: 0.060333632, z: 0.0070063104}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2817386459934096527}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411227951686199000
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +724,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5341777000076765021}
+    - targetCorrespondingSourceObject: {fileID: 4083501151425157549, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5443956556903459039}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4190249285044323878}
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5838514283293300341}
     - targetCorrespondingSourceObject: {fileID: 3849762623622064168, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
       insertIndex: -1
       addedObject: {fileID: 938317095480612078}
@@ -709,6 +749,11 @@ GameObject:
 --- !u!4 &1745256846601011913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
+  m_PrefabInstance: {fileID: 2284130573293561122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2817386459934096527 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4083501151425157549, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
   m_PrefabInstance: {fileID: 2284130573293561122}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3089405650067000586 stripped
@@ -754,7 +799,7 @@ MonoBehaviour:
   template: {fileID: 0}
   droppableOnFloor: 1
   trolleyParent: {fileID: 6682920843796267279}
-  moveLoc: {fileID: 0}
+  toolSlot: {fileID: 5443956556903459039}
   trolleyBody: {fileID: 1401663429429205107}
   rotationSpeed: 2
   moveSpeed: 5
@@ -781,3 +826,46 @@ MonoBehaviour:
     bounciness: 1
     bounceMinVelocity: 0.2
     contactDistance: 1.6
+--- !u!1 &7450272241563133234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 84f14b8c98844ee48a46795ebfc16378, type: 3}
+  m_PrefabInstance: {fileID: 2284130573293561122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4190249285044323878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7450272241563133234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14947ef85accda40bd62ee4cbdd136f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Surface
+  originalMaterial: {fileID: 0}
+  objectRenderer: {fileID: 0}
+  template: {fileID: 0}
+  placedTool: {fileID: 0}
+  toolSlot: {fileID: 5443956556903459039}
+--- !u!65 &5838514283293300341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7450272241563133234}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0075999997, y: 0.0075999987, z: 0.009384128}
+  m_Center: {x: 0, y: 0, z: 0.00089205743}

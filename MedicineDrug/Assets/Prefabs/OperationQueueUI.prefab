@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349271264811985147}
   - component: {fileID: 5146709290363517649}
+  - component: {fileID: -6510876109596778007}
   m_Layer: 5
   m_Name: OperationQueueUI
   m_TagString: Untagged
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &-6510876109596778007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928613114956491981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e5eb8e210476f4ca84ba01b19d844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OperationQueueUI
+  owner: {fileID: 0}
 --- !u!1001 &3751741167100599625
 PrefabInstance:
   m_ObjectHideFlags: 0

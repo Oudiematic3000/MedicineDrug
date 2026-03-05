@@ -14,7 +14,7 @@ public class Interactable : Usable
     }
     public virtual void OnInteract(bool action, Player player)
     {
-        if(template.toolNeeded==null || player.heldTool.template==template.toolNeeded)
+        if(template.toolNeeded==null || (player.heldTool!=null&& player.heldTool.template==template.toolNeeded))
         if (!completed)
         {
             interacting = action;

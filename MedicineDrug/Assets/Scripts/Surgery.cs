@@ -1,25 +1,27 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Surgery : Interactable
 {
-   
-    public Queue<UsableTemplate> operations=new Queue<UsableTemplate>();
+    public OperationQueueUI operationQueue;
     
     void Start()
     {
-        
+        operationQueue = OperationQueueManager.instance.GetBar();
+        operationQueue.Init(this);
     }
 
-    // Update is called once per frame
-    void Update()
+ 
+    public override void OnInteract(bool action, Player player)
     {
-        
+        base.OnInteract(action, player);
     }
     public override void OnComplete()
     {
-        operations.Dequeue();
+        operationQueue.DequeueOperation();
     }
+   
 }
 

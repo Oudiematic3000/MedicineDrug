@@ -8,6 +8,7 @@ public class ProgressBar : MonoBehaviour
     ObjectPool<ProgressBar> pool;
     public Interactable owner;
     public Slider slider;
+
     public void SetPool(ObjectPool<ProgressBar> pool)
     {
         this.pool = pool;
