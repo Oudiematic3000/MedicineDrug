@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5349271264811985147}
   - component: {fileID: 5146709290363517649}
   - component: {fileID: -6510876109596778007}
+  - component: {fileID: 1516240659393223644}
   m_Layer: 5
   m_Name: OperationQueueUI
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -317.6, y: 188.3}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5146709290363517649
@@ -76,7 +77,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e5eb8e210476f4ca84ba01b19d844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OperationQueueUI
+  operationBubblesList: []
   owner: {fileID: 0}
+--- !u!114 &1516240659393223644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928613114956491981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45934c2515ec00459324cd784cdfa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Billboard
+  alignOrLookAt: 1
 --- !u!1001 &3751741167100599625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,6 +190,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8231504662983772874, guid: eaab74b34330fcb4f8ebf913256c9f68, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937474409638859462, guid: eaab74b34330fcb4f8ebf913256c9f68, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -287,6 +306,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937474409638859462, guid: eaab74b34330fcb4f8ebf913256c9f68, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -395,6 +418,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8231504662983772874, guid: eaab74b34330fcb4f8ebf913256c9f68, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937474409638859462, guid: eaab74b34330fcb4f8ebf913256c9f68, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
