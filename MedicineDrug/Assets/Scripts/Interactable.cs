@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Interactable : Usable
+public class Interactable : Usable
 {
     
     public bool interacting=false, completed=false, receivingInteractAction;
@@ -55,6 +55,9 @@ public abstract class Interactable : Usable
         progressBar.slider.value=(progress/template.interactTime);
     }
 
-    public abstract void OnComplete();
+    public virtual void OnComplete()
+    {
+
+    }
 
 }
