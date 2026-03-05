@@ -9,14 +9,19 @@ public class OperationQueueUI : MonoBehaviour
 {
     ObjectPool<OperationQueueUI> pool;
     public Queue<OperationBubble> operationBubbles=new Queue<OperationBubble>();
+    public List<OperationBubble> operationBubblesList = new List<OperationBubble>();
     public Interactable owner;
     void Start()
     {
-        foreach(Transform t in transform)
+        foreach (Transform t in transform)
         {
             t.GetComponent<OperationBubble>().queueUI = this;
+            operationBubblesList.Add(t.GetComponent<OperationBubble>());
             operationBubbles.Enqueue(t.GetComponent<OperationBubble>());
+
+
         }
+        GenerateQueue();
         operationBubbles.Peek().Run();
     }
     public void SetPool(ObjectPool<OperationQueueUI> pool)
@@ -39,8 +44,23 @@ public class OperationQueueUI : MonoBehaviour
         var topBubble = operationBubbles.Peek();
         operationBubbles.Dequeue();
         Destroy(topBubble.gameObject);
-        print("OPBUBS"+operationBubbles.Count);
         operationBubbles.Peek().Run();
+        owner.template.toolNeeded=GetToolNeeded();
 
+    }
+    public void GenerateQueue()
+    {
+        UsableTemplate[] list = new UsableTemplate[3];
+        list = Resources.LoadAll<UsableTemplate>("Tools");
+
+        for (int i = 0; i < 3; i++)
+        {
+            operationBubblesList[i].toolNeeded = list[Random.Range(0, list.Length)];
+        }
+        owner.template.toolNeeded = GetToolNeeded();
+    }
+    public UsableTemplate GetToolNeeded()
+    {
+        return operationBubbles.Peek().toolNeeded;
     }
 }
