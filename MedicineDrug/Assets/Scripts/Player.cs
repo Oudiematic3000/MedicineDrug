@@ -42,7 +42,6 @@ public class Player : MonoBehaviour, IGameplayActions
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-        print("INTERACTACTIONCALLED");
         if (context.performed) grabHitbox.InteractAction(true, this);
         else
         if (context.canceled) grabHitbox.InteractAction(false, this);
