@@ -43,9 +43,16 @@ public class Player : MonoBehaviour, IGameplayActions
     public void OnInteract(InputAction.CallbackContext context)
     {
         print("INTERACTACTIONCALLED");
-        if (context.performed) grabHitbox.InteractAction(true, this);
-        else
-        if (context.canceled) grabHitbox.InteractAction(false, this);
+        if (context.performed)
+        {
+            grabHitbox.InteractAction(true, this);
+            anim.SetBool("using", true);
+        }
+        else if (context.canceled)
+        {
+            grabHitbox.InteractAction(false, this);
+            anim.SetBool("using", false);
+        }
         
         oninteract?.Invoke();
     }
@@ -69,10 +76,12 @@ public class Player : MonoBehaviour, IGameplayActions
         if (!heldTool)
         {
             grabHitbox.PickupAction(this);
+            anim.SetBool("holding", true);
         }
         else
         {
             heldTool.OnPutDown(this);
+            anim.SetBool("holding", false);
             heldTool=null;
         }
     }
