@@ -52,14 +52,14 @@ public class GrabHitbox : MonoBehaviour
     {
         if (usableGO.GetComponent<Interactable>()) {
             Interactable interactable = usableGO.GetComponent<Interactable>();
-            interactable.OnInteract(Action); 
+            interactable.OnInteract(Action, player); 
         }
     }
     public void CancelInteraction()
     {
         if (usableGO.GetComponent<Interactable>())
         {
-            usableGO.GetComponent<Interactable>().OnInteract(false);
+            usableGO.GetComponent<Interactable>().OnInteract(false,player);
         }
     }
 }

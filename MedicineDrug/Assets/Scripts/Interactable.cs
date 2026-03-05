@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 public class Interactable : Usable
 {
-    public float interactTime;
-    public Tool neededTool;
+    
     public bool interacting=false, completed=false, receivingInteractAction;
     public float progress=0f;
     public ProgressBar progressBar;
@@ -13,8 +12,9 @@ public class Interactable : Usable
     {
         
     }
-    public void OnInteract(bool action)
+    public virtual void OnInteract(bool action, Player player)
     {
+        if(template.toolNeeded==null || player.heldTool.template==template.toolNeeded)
         if (!completed)
         {
             interacting = action;
@@ -28,17 +28,17 @@ public class Interactable : Usable
 
         if (completed) return;
 
-        if (interacting && progress<=interactTime)
+        if (interacting && progress<=template.interactTime)
         {
             progress += Time.deltaTime;
             
-        }else if(!interacting && progress < interactTime && progress>0)
+        }else if(!interacting && progress < template.interactTime && progress>0)
         {
             progress -= Time.deltaTime/1.5f;
         }
-        else if(progress>=interactTime)
+        else if(progress>=template.interactTime)
         {
-            progress = interactTime;
+            progress = template.interactTime;
             OnComplete();
             Debug.Log("complete"+name);
             completed = true;
@@ -52,12 +52,12 @@ public class Interactable : Usable
             });
         }
         if(progressBar != null)
-        progressBar.slider.value=(progress/interactTime);
+        progressBar.slider.value=(progress/template.interactTime);
     }
 
-    void OnComplete()
+    public virtual void OnComplete()
     {
-        //SO action
+
     }
 
 }
