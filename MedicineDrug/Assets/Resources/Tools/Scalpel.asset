@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UsableTemplate
   interactTime: 4
   toolNeeded: {fileID: 0}
-  droppableOnFloor: 1
+  droppableOnFloor: 0
