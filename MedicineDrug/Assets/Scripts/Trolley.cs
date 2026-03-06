@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Trolley : Tool
 {
-    [SerializeField] Transform trolleyParent, moveLoc;
+    [SerializeField] public Transform trolleyParent, toolSlot;
     [SerializeField] GameObject trolleyBody;
     public float rotationSpeed, moveSpeed, acceleration;
     public WheelCollider[] wheels;

@@ -36,7 +36,11 @@ public class DrawerDispense : MonoBehaviour
         if (trolleyPresent)
         
         {
-            Instantiate(toolToSpawn, presentObject.transform);
+            Surface surface = presentObject.GetComponentInChildren<Surface>();
+            if(surface.placedTool != null)return;
+           var go= Instantiate(toolToSpawn, surface.toolSlot);
+            go.transform.localPosition = Vector3.zero;
+           surface.placedTool = go;
         }
     }
 }

@@ -40,16 +40,24 @@ public class GrabHitbox : MonoBehaviour
 
     public void PickupAction(Player player)
     {
+        if (!usableGO) return;
         if (usableGO.GetComponent<Tool>())
         {
             Tool tool = usableGO.GetComponent<Tool>();
             tool.OnPickup(player);
             player.heldTool = tool;
         }
+        else if (usableGO.GetComponent<Surface>())
+        {
+            Surface surface = usableGO.GetComponent<Surface>();
+            surface.PickUpPutDown(player);
+        }
     }
    
     public void InteractAction(bool Action, Player player)
     {
+        if (!usableGO) return;
+
         if (usableGO.GetComponent<Interactable>()) {
             Interactable interactable = usableGO.GetComponent<Interactable>();
             interactable.OnInteract(Action, player); 
@@ -57,6 +65,8 @@ public class GrabHitbox : MonoBehaviour
     }
     public void CancelInteraction()
     {
+        if (!usableGO) return;
+
         if (usableGO.GetComponent<Interactable>())
         {
             usableGO.GetComponent<Interactable>().OnInteract(false,player);
