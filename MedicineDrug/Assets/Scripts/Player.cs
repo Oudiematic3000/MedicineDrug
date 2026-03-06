@@ -89,12 +89,49 @@ public class Player : MonoBehaviour, IGameplayActions
     void Move()
     {
         anim.SetFloat("speed", moveInput.magnitude);
-        if(moveInput==Vector2.zero)return;
-        Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
-        transform.rotation =Quaternion.Slerp(transform.rotation, targetRotation,rotationSpeed*Time.deltaTime);
+        if (moveInput == Vector2.zero) return;
 
-        rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration*Time.deltaTime);
+        if (heldTool)
+        {
+            if (heldTool.GetComponentInChildren<Trolley>() || heldTool.GetComponentInChildren<GurneyHandle>())
+            {
+                Vector3 camForward = Camera.main.transform.forward;
+                Vector3 camRight = Camera.main.transform.right;
+
+                camForward.y = 0;
+                camRight.y = 0;
+
+                camForward.Normalize();
+                camRight.Normalize();
+
+                Vector3 inputDir = camForward * moveInput.y + camRight * moveInput.x;
+
+                float turnSpeed = 120f;
+                float forwardSpeed = moveSpeed;
+
+                float turn = Vector3.Dot(inputDir, transform.right) * turnSpeed * Time.deltaTime;
+                transform.Rotate(0, turn, 0);
+
+                float forward = Vector3.Dot(inputDir, transform.forward);
+
+                Vector3 forwardMove = transform.forward * forward * forwardSpeed;
+
+                rb.linearVelocity = Vector3.MoveTowards(
+                    rb.linearVelocity,
+                    forwardMove,
+                    acceleration * Time.deltaTime
+                );
+            }
+        }
+        else
+        {
+            Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
+        }
+       
     }
 
     public void SetTemporaryMovement(float rotationTime, float moveSpeed, float accelerationTime)
