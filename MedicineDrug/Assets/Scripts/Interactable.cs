@@ -51,7 +51,12 @@ public class Interactable : Usable
                 completed= false;   
             });
         }
-        if(progressBar != null)
+        else if (progress <= 0)
+        {
+            progressBar.ReturnToPool();
+            progressBar = null;
+        }
+        if (progressBar != null)
         progressBar.slider.value=(progress/template.interactTime);
     }
 
