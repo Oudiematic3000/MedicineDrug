@@ -1028,65 +1028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GurneyParent
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 513975308859958884, guid: cf87415e093390843bda37921db77e12, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7678339032437086075, guid: cf87415e093390843bda37921db77e12, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3823848863198512959}
-    - targetCorrespondingSourceObject: {fileID: 7678339032437086075, guid: cf87415e093390843bda37921db77e12, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3823848863198512958}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf87415e093390843bda37921db77e12, type: 3}
---- !u!1 &3823848863198512957 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7678339032437086075, guid: cf87415e093390843bda37921db77e12, type: 3}
-  m_PrefabInstance: {fileID: 3823848863198512956}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3823848863198512958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823848863198512957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0b11f87b534c347aad17c888bb2fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Surgery
-  originalMaterial: {fileID: 0}
-  objectRenderer: {fileID: 0}
-  template: {fileID: 11400000, guid: 103b3d1a6c37d4e43b5fe1ddb95a5b3b, type: 2}
-  interacting: 0
-  completed: 0
-  receivingInteractAction: 0
-  progress: 0
-  progressBar: {fileID: 0}
-  operationQueue: {fileID: 0}
---- !u!65 &3823848863198512959
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823848863198512957}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4634695, y: 0.25302958, z: 0.89596975}
-  m_Center: {x: -2.8070097, y: 0.13682675, z: -0.052015137}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

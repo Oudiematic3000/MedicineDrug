@@ -16,6 +16,7 @@ public class Surgery : Interactable
  
     public override void OnInteract(bool action, Player player)
     {
+        if(!AneMachine.instance.depleted)
         base.OnInteract(action, player);
     }
     public override void OnComplete()
