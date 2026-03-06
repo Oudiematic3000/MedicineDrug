@@ -749,6 +749,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerParent
       objectReference: {fileID: 0}
+    - target: {fileID: 8981850409062859513, guid: 1f086909405aeb349a900ae5c97b976e, type: 3}
+      propertyPath: m_Size.z
+      value: 0.13291383
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981850409062859513, guid: 1f086909405aeb349a900ae5c97b976e, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05504048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1057,7 +1065,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226391469}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 295efcab0a62f59429e8b417889b448c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1355,8 +1363,6 @@ MonoBehaviour:
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
   template: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
-  interactTime: 0
-  neededTool: {fileID: 0}
   interacting: 0
   completed: 0
   receivingInteractAction: 0
@@ -1711,6 +1717,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1112064830516036120, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551773909385893124, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246474640700953728, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7029431
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Size.z
+      value: 0.41269922
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Center.y
+      value: 0.31401193
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Center.z
+      value: 0.13212943
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3657157152e7c7849a36c3ca227dec4b, type: 2}
+    - target: {fileID: 4287302009753928547, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4914259035970410945, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_Name
       value: SurgTrolley
@@ -1884,8 +1926,6 @@ MonoBehaviour:
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
   template: {fileID: 11400000, guid: e3550dd91b6af464988001b2cbfaa84d, type: 2}
-  interactTime: 0
-  neededTool: {fileID: 0}
   interacting: 0
   completed: 0
   receivingInteractAction: 0
