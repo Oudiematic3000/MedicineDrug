@@ -39,6 +39,17 @@ public class Player : MonoBehaviour, IGameplayActions
     {
         Move();
         physicsHandle.MovePosition(hand.position);
+        
+        if (!heldTool)
+        {
+            anim.SetBool("holding", false);
+            Debug.Log("Holding set to false (From checking if the player has a tool)");
+        }
+        else if (heldTool)
+        {
+            anim.SetBool("holding", true);
+            Debug.Log("Holding set to true (From checking if the player has a tool)");
+        }
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -77,11 +88,13 @@ public class Player : MonoBehaviour, IGameplayActions
         {
             grabHitbox.PickupAction(this);
             anim.SetBool("holding", true);
+            Debug.Log("Holding set to true");
         }
         else
         {
             heldTool.OnPutDown(this);
             anim.SetBool("holding", false);
+            Debug.Log("Holding set to false");
             heldTool=null;
         }
     }

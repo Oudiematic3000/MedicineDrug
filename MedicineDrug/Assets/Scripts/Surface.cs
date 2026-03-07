@@ -4,6 +4,7 @@ public class Surface : Usable
 {
     public Tool placedTool;
     public Transform toolSlot;
+    public Animator playerAnimator;
     void Start()
     {
         
@@ -22,15 +23,24 @@ public class Surface : Usable
     }
     void Pickup(Player player)
     {
+        playerAnimator.SetBool("holding", true);
+        Debug.Log("Pickup in surface fired");
+        Debug.Log("Holding set to true");
+        
         if(player.heldTool)return;
 
         placedTool.transform.SetParent(player.hand);
         placedTool.transform.localPosition = Vector3.zero;
         placedTool.transform.rotation =Quaternion.LookRotation(player.hand.forward, Vector3.up);
         placedTool = null;
+        
     }
     void Putdown(Player player)
     {
+        playerAnimator.SetBool("holding", false);
+        Debug.Log("Putdown in surface fired");
+        Debug.Log("Holding set to false");
+        
         if (!player.heldTool) return;
         player.heldTool.transform.SetParent(toolSlot);
         player.heldTool.transform.localPosition = Vector3.zero;
