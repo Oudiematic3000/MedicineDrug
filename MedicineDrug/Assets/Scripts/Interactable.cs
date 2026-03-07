@@ -53,6 +53,7 @@ public class Interactable : Usable
         }
         else if (progress <= 0)
         {
+            if(!progressBar)return;
             progressBar.ReturnToPool();
             progressBar = null;
         }

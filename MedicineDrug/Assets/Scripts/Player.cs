@@ -42,7 +42,6 @@ public class Player : MonoBehaviour, IGameplayActions
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-        print("INTERACTACTIONCALLED");
         if (context.performed)
         {
             grabHitbox.InteractAction(true, this);
@@ -73,16 +72,26 @@ public class Player : MonoBehaviour, IGameplayActions
     public void OnPickUp(InputAction.CallbackContext context)
     {
         if(!context.performed)return;
-        if (!heldTool)
+        if ((heldTool&& (!heldTool.GetComponentInChildren<Trolley>() || heldTool.GetComponentInChildren<GurneyHandle>()))||!heldTool)
         {
             grabHitbox.PickupAction(this);
             anim.SetBool("holding", true);
         }
         else
         {
-            heldTool.OnPutDown(this);
-            anim.SetBool("holding", false);
-            heldTool=null;
+            if (heldTool.template.droppableOnFloor)
+            {
+                heldTool.OnPutDown(this);
+                anim.SetBool("holding", false);
+                heldTool = null;
+            }
+            else if(grabHitbox.usableGO.GetComponent<Surface>())
+            {
+                grabHitbox.PickupAction(this);
+                anim.SetBool("holding", false);
+                heldTool = null;
+
+            }
         }
     }
 
@@ -121,6 +130,15 @@ public class Player : MonoBehaviour, IGameplayActions
                     forwardMove,
                     acceleration * Time.deltaTime
                 );
+            }
+            else
+            {
+                
+            Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
             }
         }
         else
