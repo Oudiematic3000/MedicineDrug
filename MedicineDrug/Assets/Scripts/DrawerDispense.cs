@@ -28,6 +28,11 @@ public class DrawerDispense : MonoBehaviour
             {
                 trolleyPresent = true;
             }
+            
+        }
+        else
+        {
+            trolleyPresent = false;
         }
     }
 
@@ -37,10 +42,13 @@ public class DrawerDispense : MonoBehaviour
         
         {
             Surface surface = presentObject.GetComponentInChildren<Surface>();
-            if(surface.placedTool != null)return;
-           var go= Instantiate(toolToSpawn, surface.toolSlot);
-            go.transform.localPosition = Vector3.zero;
-           surface.placedTool = go;
+            if (surface != null)
+            {
+                if (surface.placedTool != null) return;
+                var go = Instantiate(toolToSpawn, surface.toolSlot);
+                go.transform.localPosition = Vector3.zero;
+                surface.placedTool = go;
+            }
         }
     }
 }

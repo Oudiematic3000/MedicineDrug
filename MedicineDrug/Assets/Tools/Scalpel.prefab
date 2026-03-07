@@ -109,7 +109,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -128,3 +128,4 @@ MonoBehaviour:
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
   template: {fileID: 11400000, guid: d22b8d7ee761e8d4a9a2e92a90751615, type: 2}
+  droppableOnFloor: 0
