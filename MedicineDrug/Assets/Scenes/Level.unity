@@ -3546,7 +3546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaunchSpawner
   spawnPoint: {fileID: 1587205423}
-  prefabToSpawn: {fileID: 6656410031859048140, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+  prefabToSpawn: {fileID: 3948455171791159053, guid: cf87415e093390843bda37921db77e12, type: 3}
   spawnRate: 30
   spawnForce: {x: 0, y: 0, z: 150}
 --- !u!4 &947806225
@@ -4875,7 +4875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4883,7 +4883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4895,7 +4895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6682920843796267279, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
