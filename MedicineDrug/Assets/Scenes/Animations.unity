@@ -20636,17 +20636,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.15
+    - target: {fileID: 3322322308315106034, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
+      propertyPath: interactEffect
+      value: 
+      objectReference: {fileID: 346148179}
+    - target: {fileID: 3322322308315106034, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
+      propertyPath: completedEffect
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20688,10 +20684,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: m_Name
       value: Sink (1)
@@ -20699,60 +20691,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1402277440}
-    - targetCorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1402277439}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
---- !u!1 &1402277438 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-  m_PrefabInstance: {fileID: 1402277437}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1402277439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402277438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6c0d902b89ff47b5fdec465c56b01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  originalMaterial: {fileID: 0}
-  objectRenderer: {fileID: 0}
-  template: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
-  interacting: 0
-  completed: 0
-  receivingInteractAction: 0
-  progress: 0
-  progressBar: {fileID: 0}
---- !u!65 &1402277440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402277438}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.979267, y: 3.9371486, z: 3.9488125}
-  m_Center: {x: -0.024508012, y: 2.1316626, z: -0.013427137}
 --- !u!1001 &1419378844
 PrefabInstance:
   m_ObjectHideFlags: 0
