@@ -796,7 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Trolley
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
-  template: {fileID: 0}
+  template: {fileID: 11400000, guid: 784d21df6a93e85498d3437bf9b0ea45, type: 2}
   droppableOnFloor: 1
   trolleyParent: {fileID: 6682920843796267279}
   toolSlot: {fileID: 5443956556903459039}

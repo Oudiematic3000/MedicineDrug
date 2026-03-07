@@ -44,6 +44,7 @@ public class OperationQueueUI : MonoBehaviour
         var topBubble = operationBubbles.Peek();
         operationBubbles.Dequeue();
         Destroy(topBubble.gameObject);
+        if (operationBubbles.Count <= 0) return;
         operationBubbles.Peek().Run();
         owner.template.toolNeeded=GetToolNeeded();
 
