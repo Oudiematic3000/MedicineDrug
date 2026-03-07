@@ -15,7 +15,8 @@ public class OperationQueueUI : MonoBehaviour
     {
         foreach (Transform t in transform)
         {
-            t.GetComponent<OperationBubble>().queueUI = this;
+            var bubble = t.GetComponent<OperationBubble>();
+            bubble.queueUI = this;
             operationBubblesList.Add(t.GetComponent<OperationBubble>());
             operationBubbles.Enqueue(t.GetComponent<OperationBubble>());
 
@@ -57,6 +58,7 @@ public class OperationQueueUI : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             operationBubblesList[i].toolNeeded = list[Random.Range(0, list.Length)];
+            operationBubblesList[i].testText.text = operationBubblesList[i].toolNeeded.name;
         }
         owner.template.toolNeeded = GetToolNeeded();
     }
