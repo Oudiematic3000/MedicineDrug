@@ -10414,6 +10414,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844980234177179210, guid: 1f086909405aeb349a900ae5c97b976e, type: 3}
+      propertyPath: dust
+      value: 
+      objectReference: {fileID: 2128581156}
+    - target: {fileID: 2844980234177179210, guid: 1f086909405aeb349a900ae5c97b976e, type: 3}
       propertyPath: moveSpeed
       value: 3.35
       objectReference: {fileID: 0}
