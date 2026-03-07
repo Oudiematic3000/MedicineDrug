@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, IGameplayActions
     public Tool heldTool;
     public Rigidbody physicsHandle;
     Vector2 moveInput;
+    public ParticleSystem dust;
 
     public float rotationSpeed, moveSpeed, acceleration;
     float defaultRotationSpeed, defaultMoveSpeed, defaultAcceleration;
@@ -30,13 +31,18 @@ public class Player : MonoBehaviour, IGameplayActions
  
     void Start()
     {
-        
+        dust.Stop();
     }
     void Update()
     {
     }
     private void FixedUpdate()
     {
+        if (rb.linearVelocity.magnitude < 0.1)
+        {
+            dust.Stop();
+        }
+        
         Move();
         physicsHandle.MovePosition(hand.position);
         
@@ -74,10 +80,10 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        
         if(context.performed)
         moveInput = context.ReadValue<Vector2>();
         if (context.canceled) moveInput = Vector2.zero;
+        dust.Play();
     }
 
     public void OnPickUp(InputAction.CallbackContext context)
