@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,9 @@ public class OperationBubble : MonoBehaviour
     public bool running=false;
     public Slider slider;
     public OperationQueueUI queueUI;
+    public TextMeshProUGUI testText;
     void Start()
     {
-        
     }
 
     // Update is called once per frame

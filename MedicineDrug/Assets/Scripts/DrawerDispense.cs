@@ -38,7 +38,7 @@ public class DrawerDispense : MonoBehaviour
 
     private void spawnTool()
     {
-        if (trolleyPresent)
+        if (trolleyPresent && presentObject.GetComponent<Trolley>().holdingPlayer)
         
         {
             Surface surface = presentObject.GetComponentInChildren<Surface>();
