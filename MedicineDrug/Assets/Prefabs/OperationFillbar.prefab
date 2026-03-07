@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OperationBubble
   toolNeeded: {fileID: 0}
-  timerLength: 6
+  timerLength: 15
   running: 0
   slider: {fileID: 4701951358055994744}
   queueUI: {fileID: 0}
