@@ -8,6 +8,9 @@ public class Interactable : Usable
     public float progress=0f;
     public ProgressBar progressBar;
     public ParticleSystem interactEffect, completedEffect;
+    public AudioClip interactSound;
+    public AudioClip completedSound;
+    public AudioClip usingSound;
 
     private void Start()
     {
@@ -21,6 +24,7 @@ public class Interactable : Usable
         {
             interacting = action;
             interactEffect.Play();
+            AudioManager.instance.PlaySFX();
             if (progressBar) return;
             progressBar = ProgressBarManager.instance.GetBar();
             progressBar.Init(transform.position + (Vector3.up * 1.5f), this);

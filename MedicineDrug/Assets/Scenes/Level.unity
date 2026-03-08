@@ -494,35 +494,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 182769049}
-    - targetCorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 182769048}
   m_SourcePrefab: {fileID: 100100000, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
 --- !u!1 &182769047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
   m_PrefabInstance: {fileID: 182769046}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &182769048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182769047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6c0d902b89ff47b5fdec465c56b01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  originalMaterial: {fileID: 0}
-  objectRenderer: {fileID: 0}
-  template: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
-  interacting: 0
-  completed: 0
-  receivingInteractAction: 0
-  progress: 0
-  progressBar: {fileID: 0}
 --- !u!65 &182769049
 BoxCollider:
   m_ObjectHideFlags: 0
