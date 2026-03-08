@@ -8,11 +8,11 @@ public class ThrowAway : Interactable
         base.OnInteract(action, player);
         this.player = player;
 
-        //if (!this.player.heldTool)
-        //{
-            //player = null;
-            //return;
-        //}
+        if (!this.player.heldTool)
+        {
+            player = null;
+            return;
+        }
     }
 
     public override void OnComplete()
