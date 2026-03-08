@@ -122,32 +122,22 @@ public class Player : MonoBehaviour, IGameplayActions
         {
             if (heldTool.GetComponentInChildren<Trolley>() || heldTool.GetComponentInChildren<GurneyHandle>())
             {
-                Vector3 camForward = Camera.main.transform.forward;
-                Vector3 camRight = Camera.main.transform.right;
-
-                camForward.y = 0;
-                camRight.y = 0;
-
-                camForward.Normalize();
-                camRight.Normalize();
-
-                Vector3 inputDir = camForward * moveInput.y + camRight * moveInput.x;
-
                 float turnSpeed = 120f;
                 float forwardSpeed = moveSpeed;
 
-                float turn = Vector3.Dot(inputDir, transform.right) * turnSpeed * Time.deltaTime;
-                transform.Rotate(0, turn, 0);
+              
+                    float turn = moveInput.x * turnSpeed * Time.deltaTime;
+                    transform.Rotate(0, turn, 0);
+                
 
-                float forward = Vector3.Dot(inputDir, transform.forward);
-
-                Vector3 forwardMove = transform.forward * forward * forwardSpeed;
+                Vector3 forwardMove = transform.forward * moveInput.y * forwardSpeed;
 
                 rb.linearVelocity = Vector3.MoveTowards(
                     rb.linearVelocity,
                     forwardMove,
                     acceleration * Time.deltaTime
                 );
+                Debug.Log("TROLLLLEELELELELE");
             }
             else
             {
@@ -159,6 +149,7 @@ public class Player : MonoBehaviour, IGameplayActions
             rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
             }
         }
+
         else
         {
             Vector3 moveInput3 = new Vector3(moveInput.x, 0, moveInput.y).normalized;

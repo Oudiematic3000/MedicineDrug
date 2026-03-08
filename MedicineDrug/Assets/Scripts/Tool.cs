@@ -6,7 +6,8 @@ public class Tool : Usable
 
     public virtual void OnPickup(Player player)
     {
-        print("Picked up!");
+        if (template.emptyHandRequired && player.heldTool) return;
+        if (template.toolNeeded != null && template.toolNeeded != player.heldTool) return;
     }
 
     public virtual void OnPutDown(Player player)
