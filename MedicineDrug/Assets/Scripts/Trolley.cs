@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Trolley : Tool
@@ -10,8 +11,15 @@ public class Trolley : Tool
     public HingeJoint joint;
     public Rigidbody trolleyRB;
     public Player holdingPlayer;
+    public bool moving;
+    public AudioClip movingSound;
 
     public TrolleyJointSettings jointSettings;
+
+    public void Start()
+    {
+        
+    }
     public override void OnPickup(Player player)
     {
         if (holdingPlayer) return;
@@ -106,8 +114,20 @@ public class Trolley : Tool
     [SerializeField] Transform trolleyAnchor;
     [SerializeField] float maxDistance = 1.2f;
 
+    public AudioSource sound;
     void FixedUpdate()
     {
+        if (sound == null || !sound.gameObject.activeSelf) sound = AudioManager.instance.PlayLoopingWhile(movingSound, ()=>moving);
+        
+        if (trolleyRB.linearVelocity.magnitude > 0.1)
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
+        
         if (!holdingPlayer) return;
         playerAnchor=holdingPlayer.physicsHandle.transform;
         trolleyAnchor = transform;

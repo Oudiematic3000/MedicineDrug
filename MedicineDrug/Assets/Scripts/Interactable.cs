@@ -27,6 +27,7 @@ public class Interactable : Usable
             interacting = action;
             interactEffect.Play();
             AudioManager.instance.PlayLoopingWhile(usingSound, ()=>interacting);
+            AudioManager.instance.PlayLoopingWhile(interactSound, ()=>interacting);
             if (progressBar) return;
             progressBar = ProgressBarManager.instance.GetBar();
             progressBar.Init(transform.position + (Vector3.up * 1.5f), this);

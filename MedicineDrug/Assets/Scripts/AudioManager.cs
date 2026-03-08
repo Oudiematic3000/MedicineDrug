@@ -134,12 +134,13 @@ public class AudioManager : MonoBehaviour
             sfxPool.Release(src);
     }
 
-    public void PlayLoopingWhile(AudioClip clip, Func<bool> condition, float volume = 1f, float pitch = 1f)
+    public AudioSource PlayLoopingWhile(AudioClip clip, Func<bool> condition, float volume = 1f, float pitch = 1f)
     {
-        if (clip == null || condition == null) return;
+        if (clip == null || condition == null) return null;
 
         var src = sfxPool.Get();
         StartCoroutine(LoopWhileCondition(src, clip, condition, volume, pitch));
+        return src;
     }
 
     private IEnumerator LoopWhileCondition(AudioSource src, AudioClip clip, Func<bool> condition, float volume, float pitch)

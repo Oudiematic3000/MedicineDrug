@@ -7,6 +7,7 @@ public class DrawerDispense : MonoBehaviour
     public GameObject trigger;
     public Collider presentObject;
     public Tool toolToSpawn;
+    public AudioClip interactSound;
 
     private void OnEnable()
     {
@@ -48,6 +49,7 @@ public class DrawerDispense : MonoBehaviour
                 var go = Instantiate(toolToSpawn, surface.toolSlot);
                 go.transform.localPosition = Vector3.zero;
                 surface.placedTool = go;
+                AudioManager.instance.PlaySFX(interactSound);
             }
         }
     }
