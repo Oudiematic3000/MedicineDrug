@@ -5015,13 +5015,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Sink
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
-  template: {fileID: 0}
+  template: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
   interacting: 0
   completed: 0
   receivingInteractAction: 0
   progress: 0
   progressBar: {fileID: 0}
-  interactEffect: {fileID: 0}
+  interactEffect: {fileID: 3759289639901246335}
   completedEffect: {fileID: 0}
   interactSound: {fileID: 8300000, guid: a90428d3b1cff2e4e90cbb9003d73364, type: 3}
   completedSound: {fileID: 0}
