@@ -39,6 +39,7 @@ public class OperationBubble : MonoBehaviour
     }
     public void OnTimeOut()
     {
+        GameManager.instance.SubtractLife();
         queueUI.DequeueOperation();
     }
 }

@@ -25,6 +25,7 @@ public class DrawerDispense : MonoBehaviour
     }
     public void Unsubscribe()
     {
+        if(this.player != null)
         player.oninteract -= spawnTool;
     }
 
