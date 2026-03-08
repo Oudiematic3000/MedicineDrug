@@ -16,11 +16,12 @@ public class GurneyHandle : Tool
     public bool held;
     public Player holdingPlayer;
     public int swapForward=1;
-    public override void OnPickup(Player player)
+    public override bool OnPickup(Player player)
     {
-        if (holdingPlayer) return;
+        if (holdingPlayer) return false;
 
-        base.OnPickup(player);
+        if (!base.OnPickup(player)) return false;
+
 
         holdingPlayer = player;
         held = true;
@@ -29,6 +30,7 @@ public class GurneyHandle : Tool
 
         AttachTrolley();
         DisableWheels();
+        return true;    
     }
 
     public override void OnPutDown(Player player)
