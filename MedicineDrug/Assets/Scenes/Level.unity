@@ -7402,7 +7402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 2066864993}
-  musicClip: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: 62a70118dcf61ca49b97d5207777a1a5, type: 3}
   audioSourcePrefab: {fileID: 7583218241079408870, guid: 06a43b94a7ec61e40a3f487c7bf5451c, type: 3}
   defaultPoolSize: 16
   maxPoolSize: 64
