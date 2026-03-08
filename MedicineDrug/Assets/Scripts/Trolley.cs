@@ -102,9 +102,29 @@ public class Trolley : Tool
         }
     }
 
-    private void Update()
+    [SerializeField] Transform playerAnchor;
+    [SerializeField] Transform trolleyAnchor;
+    [SerializeField] float maxDistance = 1.2f;
+
+    void FixedUpdate()
     {
-       
+        if (!holdingPlayer) return;
+        playerAnchor=holdingPlayer.physicsHandle.transform;
+        trolleyAnchor = transform;
+        Vector3 playerPos = playerAnchor.position;
+        Vector3 trolleyPos = trolleyAnchor.position;
+
+        Vector3 delta = playerPos - trolleyPos;
+        float distance = delta.magnitude;
+
+        if (distance > maxDistance)
+        {
+            Vector3 correctedPos = trolleyPos + delta.normalized * maxDistance;
+
+            Vector3 offset = correctedPos - playerPos;
+
+            holdingPlayer.rb.position += offset;
+        }
     }
 }
 

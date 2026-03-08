@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -133,5 +134,32 @@ public class AudioManager : MonoBehaviour
             sfxPool.Release(src);
     }
 
-  
+    public void PlayLoopingWhile(AudioClip clip, Func<bool> condition, float volume = 1f, float pitch = 1f)
+    {
+        if (clip == null || condition == null) return;
+
+        var src = sfxPool.Get();
+        StartCoroutine(LoopWhileCondition(src, clip, condition, volume, pitch));
+    }
+
+    private IEnumerator LoopWhileCondition(AudioSource src, AudioClip clip, Func<bool> condition, float volume, float pitch)
+    {
+        src.clip = clip;
+        src.volume = Mathf.Clamp01(volume);
+        src.pitch = Mathf.Max(0.01f, pitch);
+        src.loop = true;
+
+        src.Play();
+
+        while (condition())
+        {
+            yield return null;
+        }
+
+        src.loop = false;
+        src.Stop();
+
+        if (sfxPool != null)
+            sfxPool.Release(src);
+    }
 }
