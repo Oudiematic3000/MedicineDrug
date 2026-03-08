@@ -186,6 +186,9 @@ MonoBehaviour:
   progressBar: {fileID: 0}
   interactEffect: {fileID: 0}
   completedEffect: {fileID: 0}
+  interactSound: {fileID: 0}
+  completedSound: {fileID: 0}
+  usingSound: {fileID: 0}
   operationQueue: {fileID: 0}
 --- !u!65 &7326424830685746125
 BoxCollider:
@@ -200,7 +203,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -515,7 +518,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -542,13 +545,13 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!1 &7218650955940537931
 GameObject:
@@ -693,28 +696,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1369724448614624055}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: template
-      value: 
-      objectReference: {fileID: 11400000, guid: 784d21df6a93e85498d3437bf9b0ea45, type: 2}
-    - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyBody
       value: 
-      objectReference: {fileID: 2272839879078669642}
-    - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: swapForward
-      value: -1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2302835677005635994}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: acceleration
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: grabDistance
-      value: -1.2
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyParent
@@ -727,10 +722,6 @@ PrefabInstance:
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: grabDirection.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: droppableOnFloor
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: jointSettings.anchor.y
@@ -797,28 +788,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1369724448614624055}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: template
-      value: 
-      objectReference: {fileID: 11400000, guid: 784d21df6a93e85498d3437bf9b0ea45, type: 2}
-    - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyBody
       value: 
-      objectReference: {fileID: 2272839879078669642}
-    - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: swapForward
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2302835677005635994}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: acceleration
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: grabDistance
-      value: -1.3
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyParent
@@ -831,10 +814,6 @@ PrefabInstance:
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: grabDirection.z
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
-      propertyPath: droppableOnFloor
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: jointSettings.anchor.y
@@ -890,6 +869,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6281255962682475638, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
   m_PrefabInstance: {fileID: 4869800156046458710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2302835677005635994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6656410031859048140, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+  m_PrefabInstance: {fileID: 4869800156046458710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2791188857465124787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7289438882753857765, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
@@ -908,7 +892,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -934,7 +918,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
