@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 3322322308315106034, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: interactSound
       value: 
-      objectReference: {fileID: 8300000, guid: 8845c192b78712f4a975bc841402902e, type: 3}
+      objectReference: {fileID: 8300000, guid: 1743929576013c44f9f60c56b9881f5b, type: 3}
     - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
