@@ -14,13 +14,15 @@ public class Interactable : Usable
 
     private void Start()
     {
+        if(interactEffect)
         interactEffect.Stop();
+        if(completedEffect)
         completedEffect.Stop();
     }
     public virtual void OnInteract(bool action, Player player)
     {
-        if (template.emptyHandRequired && player.heldTool) return;
-        if (template.toolNeeded != null &&template.toolNeeded!=player.heldTool) return;
+        if (template.emptyHandRequired && player.heldTool) { print("emptyneeded and not Empty"); return; }
+        if (template.toolNeeded != null && template.toolNeeded != player.heldTool) { print("toolNeeded and Tool Mismatched"); return; }
 
         if (!completed)
         {
