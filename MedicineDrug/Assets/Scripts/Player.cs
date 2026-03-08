@@ -14,6 +14,11 @@ public class Player : MonoBehaviour, IGameplayActions
     public Rigidbody physicsHandle;
     Vector2 moveInput;
     public ParticleSystem dust;
+    public int bottomRand, topRand;
+    private int randomOpCount;
+    private int numOperations;
+    public Material dirtyPlayer;
+    public Material cleanPlayer;
 
     public float rotationSpeed, moveSpeed, acceleration;
     float defaultRotationSpeed, defaultMoveSpeed, defaultAcceleration;
@@ -31,6 +36,8 @@ public class Player : MonoBehaviour, IGameplayActions
  
     void Start()
     {
+        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand);
+        makeDirty();
         dust.Stop();
     }
     void Update()
@@ -57,6 +64,36 @@ public class Player : MonoBehaviour, IGameplayActions
             //Debug.Log("Holding set to true (From checking if the player has a tool)");
         }
     }
+
+    public void makeDirty()
+    {
+        this.GetComponentInChildren<SkinnedMeshRenderer>().material = dirtyPlayer;
+    }
+
+    public void makeClean()
+    {
+        this.GetComponentInChildren<SkinnedMeshRenderer>().material = cleanPlayer;
+    }
+
+    public void checkDirty()
+    {
+        if (numOperations == randomOpCount)
+        {
+            makeDirty();
+        }
+    }
+
+    public void incrementOperation()
+    {
+        numOperations++;
+    }
+
+    public void resetOperation()
+    {
+        numOperations = 0;
+        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand);
+    }
+    
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
