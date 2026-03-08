@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.TextCore;
 
 public class GurneyHandle : Tool
 {
@@ -16,12 +18,19 @@ public class GurneyHandle : Tool
     public bool held;
     public Player holdingPlayer;
     public int swapForward=1;
+
+    public GurneyBody gurneyBodyScript;
+    public static event Action<bool> OnGurneyPickup;
     public override bool OnPickup(Player player)
     {
         if (holdingPlayer) return false;
-
+        if (gurneyBodyScript.patient.operationQueue)
+        {
+            if (gurneyBodyScript.patient.operationQueue.operationBubbles.Count > 0) return false;
+        }
         if (!base.OnPickup(player)) return false;
 
+       
 
         holdingPlayer = player;
         held = true;
@@ -67,9 +76,13 @@ public class GurneyHandle : Tool
 
     void AttachTrolley()
     {
+       
+
+        if (gurneyBodyScript.inMachineSpace) gurneyBodyScript.UnsnapFromTrigger();
+
         if (gurneyBody.TryGetComponent<Rigidbody>(out gurneyRB)) Destroy(gurneyRB);
 
-
+        OnGurneyPickup?.Invoke(true);
         holdingPlayer.transform.rotation =
             Quaternion.LookRotation(-gurneyBody.forward*swapForward, Vector3.up);
 
@@ -93,6 +106,7 @@ public class GurneyHandle : Tool
     void DetachTrolley()
     {
         gurneyBody.SetParent(null);
+        OnGurneyPickup?.Invoke(false);
 
         gurneyRB = gurneyBody.gameObject.AddComponent<Rigidbody>();
         gurneyRB.mass = 50f;
@@ -101,6 +115,7 @@ public class GurneyHandle : Tool
         {
             gurneyRB.linearVelocity = holdingPlayer.physicsHandle.linearVelocity;
         }
+        if (gurneyBodyScript.inMachineSpace) gurneyBodyScript.SnapToTrigger();
     }
 
     private void Update()

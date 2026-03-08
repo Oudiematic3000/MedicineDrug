@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 2272839879078669642}
   - component: {fileID: 2065924610695394803}
   - component: {fileID: 1369724448614624055}
+  - component: {fileID: 5002929324721971225}
   m_Layer: 0
   m_Name: GurneyParent
   m_TagString: Untagged
@@ -553,6 +554,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &5002929324721971225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948455171791159053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37188e2469bf0454b9f590da8d9f5bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GurneyBody
+  patient: {fileID: 5306136505123815709}
+  headHandle: {fileID: 6750931249628262179}
+  feetHandle: {fileID: 3905530171302335713}
+  inMachineSpace: 0
+  machineTrigger: {fileID: 0}
 --- !u!1 &7218650955940537931
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +754,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+      propertyPath: gurneyBodyScript
+      value: 
+      objectReference: {fileID: 5002929324721971225}
+    - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: jointSettings.anchor.y
       value: 0.42
       objectReference: {fileID: 0}
@@ -839,6 +861,10 @@ PrefabInstance:
       propertyPath: droppableOnFloor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+      propertyPath: gurneyBodyScript
+      value: 
+      objectReference: {fileID: 5002929324721971225}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: jointSettings.anchor.y
       value: 0.65
@@ -945,6 +971,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08559979, y: 0.0040000663, z: 0.02515864}
   m_Center: {x: -0.040799897, y: 0.00000003246753, z: 0.006902234}
+--- !u!114 &3905530171302335713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+  m_PrefabInstance: {fileID: 4869800156046458710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791188857465124787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb164a5f4a5885647b6d614d5487e37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GurneyHandle
+--- !u!114 &6750931249628262179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+  m_PrefabInstance: {fileID: 4869800156046458710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198645639550731484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb164a5f4a5885647b6d614d5487e37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GurneyHandle
 --- !u!1001 &4908637738481483996
 PrefabInstance:
   m_ObjectHideFlags: 0
