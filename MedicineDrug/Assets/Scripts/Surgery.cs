@@ -17,9 +17,11 @@ public class Surgery : Interactable
  
     public override void OnInteract(bool action, Player player)
     {
-       if(!AneMachine.instance.depleted)
-       print("SurgeryInteract toolNeeded: "+template.toolNeeded+" ToolHeld: "+player.heldTool.template);
-        base.OnInteract(action, player);
+        if (!AneMachine.instance.depleted)
+        {
+            print("SurgeryInteract toolNeeded: " + template.toolNeeded + " ToolHeld: " + player.heldTool.template);
+            base.OnInteract(action, player);
+        }
     }
     public override void OnComplete()
     {

@@ -12,11 +12,11 @@ public class DoorAudio : MonoBehaviour
 
         if (other.gameObject.GetComponentInChildren<Player>() != null)
         {
-            AudioManager.instance.PlaySFX(openSound, 0.3f);
+            AudioManager.instance.PlaySFX(openSound, 0.2f);
             
         } else if (other.gameObject.GetComponentInChildren<Trolley>() != null || other.gameObject.GetComponentInChildren<GurneyHandle>())
         {
-            AudioManager.instance.PlaySFX(slamSound, 0.3f);
+            AudioManager.instance.PlaySFX(slamSound, 0.2f);
         }
         cooldown = true;
         LeanTween.delayedCall(0.8f,() => { cooldown = false; });
