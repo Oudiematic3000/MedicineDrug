@@ -89,7 +89,7 @@ public class Player : MonoBehaviour, IGameplayActions
     public void OnPickUp(InputAction.CallbackContext context)
     {
         if(!context.performed)return;
-        if ((heldTool&& (!heldTool.GetComponentInChildren<Trolley>() || heldTool.GetComponentInChildren<GurneyHandle>()))||!heldTool)
+        if ((heldTool&& (!heldTool.GetComponentInChildren<Trolley>() && !heldTool.GetComponentInChildren<GurneyHandle>()))||!heldTool)
         {
             grabHitbox.PickupAction(this);
             anim.SetBool("holding", true);
@@ -137,7 +137,6 @@ public class Player : MonoBehaviour, IGameplayActions
                     forwardMove,
                     acceleration * Time.deltaTime
                 );
-                Debug.Log("TROLLLLEELELELELE");
             }
             else
             {

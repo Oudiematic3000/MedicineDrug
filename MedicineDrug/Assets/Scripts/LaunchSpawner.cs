@@ -14,8 +14,8 @@ public class LaunchSpawner : MonoBehaviour
     
     void launch()
     {
-        prefabToSpawn =  Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
-        prefabToSpawn.GetComponent<Rigidbody>().AddForce(spawnForce, ForceMode.Impulse);
+        var newSpawn =  Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
+        newSpawn.GetComponent<Rigidbody>().AddForce(spawnForce, ForceMode.Impulse);
         LeanTween.delayedCall(spawnRate, launch);
     }
 }
