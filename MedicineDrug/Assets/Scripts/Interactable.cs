@@ -7,10 +7,12 @@ public class Interactable : Usable
     public bool interacting=false, completed=false, receivingInteractAction;
     public float progress=0f;
     public ProgressBar progressBar;
+    public ParticleSystem interactEffect, completedEffect;
 
     private void Start()
     {
-        
+        interactEffect.Stop();
+        completedEffect.Stop();
     }
     public virtual void OnInteract(bool action, Player player)
     {
@@ -20,6 +22,7 @@ public class Interactable : Usable
         if (!completed)
         {
             interacting = action;
+            interactEffect.Play();
             if (progressBar) return;
             progressBar = ProgressBarManager.instance.GetBar();
             progressBar.Init(transform.position + (Vector3.up * 1.5f), this);
@@ -37,12 +40,14 @@ public class Interactable : Usable
         }else if(!interacting && progress < template.interactTime && progress>0)
         {
             progress -= Time.deltaTime/1.5f;
+            interactEffect.Stop();
         }
         else if(progress>=template.interactTime)
         {
             progress = template.interactTime;
             OnComplete();
             Debug.Log("complete"+name);
+            interactEffect.Stop();
             completed = true;
             progress = 0f;
             interacting=false;

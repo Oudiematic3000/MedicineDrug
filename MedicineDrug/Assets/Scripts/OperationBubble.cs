@@ -34,6 +34,7 @@ public class OperationBubble : MonoBehaviour
     public void Run()
     {
         running = true;
+        
     }
     public void OnTimeOut()
     {
