@@ -5,6 +5,7 @@ public class AneMachine : Interactable
     public static AneMachine instance;
     public bool depleted=false;
     public float delta;
+    public float tickDownModifier=1.5f;
     void Start()
     {
         progress = template.interactTime;
@@ -35,7 +36,7 @@ public class AneMachine : Interactable
         }
         else if (!interacting && progress > 0)
         {
-            delta= Time.deltaTime / 1.5f;
+            delta= Time.deltaTime / tickDownModifier;
             progress -= delta;
         }
         else if (progress <= 0)

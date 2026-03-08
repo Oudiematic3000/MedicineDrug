@@ -22,7 +22,7 @@ public class Interactable : Usable
     public virtual void OnInteract(bool action, Player player)
     {
         if (template.emptyHandRequired && player.heldTool) { print("emptyneeded and not Empty"); return; }
-        if (template.toolNeeded != null && template.toolNeeded != player.heldTool) { print("toolNeeded and Tool Mismatched"); return; }
+        if (template.toolNeeded != null && template.toolNeeded != player.heldTool.template) { print("toolNeeded and Tool Mismatched"); return; }
 
         if (!completed)
         {
