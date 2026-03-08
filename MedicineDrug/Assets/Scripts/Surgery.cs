@@ -6,7 +6,7 @@ using UnityEngine;
 public class Surgery : Interactable
 {
     public OperationQueueUI operationQueue;
-    
+    Player lastOperator;
     
     void Start()
     {
@@ -21,16 +21,21 @@ public class Surgery : Interactable
     }
     public override void OnInteract(bool action, Player player)
     {
+        if(operationQueue == null) return;
         if (operationQueue.operationBubbles.Count < 1) return;
+        if (player.isDirty) return;
         if (!AneMachine.instance.depleted)
         {
-            print("SurgeryInteract toolNeeded: " + template.toolNeeded + " ToolHeld: " + player.heldTool.template);
+            //print("SurgeryInteract toolNeeded: " + template.toolNeeded + " ToolHeld: " + player.heldTool.template);
+            lastOperator = player;
             base.OnInteract(action, player);
+            
         }
     }
     public override void OnComplete()
     {
         operationQueue.DequeueOperation();
+        lastOperator.IncrementOperation();
     }
    
 }

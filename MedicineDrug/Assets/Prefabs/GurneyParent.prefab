@@ -525,8 +525,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6564534, y: 0.6168067, z: 1.5593202}
-  m_Center: {x: 0.001437068, y: 0.36955675, z: 0.16093719}
+  m_Size: {x: 0.6564534, y: 0.6168067, z: 1.5978429}
+  m_Center: {x: 0.001437068, y: 0.36955675, z: 0.14167583}
 --- !u!54 &1369724448614624055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3948455171791159053}
   serializedVersion: 5
-  m_Mass: 10
+  m_Mass: 450
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -570,6 +570,7 @@ MonoBehaviour:
   headHandle: {fileID: 6750931249628262179}
   feetHandle: {fileID: 3905530171302335713}
   inMachineSpace: 0
+  snapped: 0
   machineTrigger: {fileID: 0}
 --- !u!1 &7218650955940537931
 GameObject:
@@ -710,6 +711,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2272839879078669642}
     m_Modifications:
     - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+      propertyPath: partner
+      value: 
+      objectReference: {fileID: 3905530171302335713}
+    - target: {fileID: 2172178974730834037, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyRB
       value: 
       objectReference: {fileID: 1369724448614624055}
@@ -817,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GurneyMain
       objectReference: {fileID: 0}
+    - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+      propertyPath: partner
+      value: 
+      objectReference: {fileID: 6750931249628262179}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyRB
       value: 

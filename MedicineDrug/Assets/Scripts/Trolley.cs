@@ -69,7 +69,7 @@ public class Trolley : Tool
     void AttachTrolley()
     {
         Destroy(trolleyRB);
-
+        trolleyBody.parent.rotation = Quaternion.Euler(0, trolleyBody.rotation.y, 0);
         holdingPlayer.transform.rotation =
             Quaternion.LookRotation(-trolleyBody.forward, Vector3.up);
 

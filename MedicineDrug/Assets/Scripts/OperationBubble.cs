@@ -11,6 +11,7 @@ public class OperationBubble : MonoBehaviour
     public Slider slider;
     public OperationQueueUI queueUI;
     public TextMeshProUGUI testText;
+    public Image image;
     void Start()
     {
     }

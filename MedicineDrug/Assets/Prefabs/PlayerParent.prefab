@@ -5715,8 +5715,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.38581067, y: 0.20698968, z: 0.13291383}
-  m_Center: {x: -0.01569292, y: 0.023176178, z: -0.05504048}
+  m_Size: {x: 0.2147811, y: 0.20698968, z: 0.13291383}
+  m_Center: {x: 0.03204955, y: 0.023176178, z: -0.05504048}
 --- !u!114 &6297676958750040398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5844,7 +5844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 0}
   grabHitbox: {fileID: 6297676958750040398}
-  hand: {fileID: 8807778072593555294}
+  hand: {fileID: 1129039995199597261}
   anim: {fileID: 0}
   heldTool: {fileID: 0}
   physicsHandle: {fileID: 4620855974679457579}
@@ -5855,9 +5855,11 @@ MonoBehaviour:
   topRand: 4
   dirtyPlayer: {fileID: 2100000, guid: d50f13ac21ec3014d833a9b62f921201, type: 2}
   cleanPlayer: {fileID: 2100000, guid: 4735e8f4866bb57419d71bb7cd2af84b, type: 2}
+  isDirty: 0
   rotationSpeed: 6
-  moveSpeed: 2
+  moveSpeed: 3
   acceleration: 40
+  locked: 0
 --- !u!114 &5133083576659820743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5900,7 +5902,19 @@ MonoBehaviour:
     m_ActionId: 200be52e-56a1-420f-93d1-b240e4d92bce
     m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2844980234177179210}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnLock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b63eee18-c7b7-474b-a3c9-fa6a6017a944
     m_ActionName: 'Gameplay/Lock[/DualShock4GamepadHID/leftShoulder]'
   - m_PersistentCalls:
@@ -11257,7 +11271,7 @@ Transform:
   m_GameObject: {fileID: 7432408860103481915}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.702, z: 0.416}
+  m_LocalPosition: {x: 0.135, y: 0.553, z: 0.525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

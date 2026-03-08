@@ -8,4 +8,5 @@ public class UsableTemplate : ScriptableObject
    [SerializeField] public UsableTemplate toolNeeded;
    [SerializeField] public bool droppableOnFloor;
     public bool emptyHandRequired=false;
+    public Sprite sprite;
 }
