@@ -131,7 +131,7 @@ MonoBehaviour:
   trigger: {fileID: 7741565208020280991}
   presentObject: {fileID: 0}
   toolToSpawn: {fileID: 1611244025735771010, guid: a651721481139bd49835cbb259f0308e, type: 3}
-  interactSound: {fileID: 8300000, guid: 03370012a4cafa344a6b499eee52ddf4, type: 3}
+  interactSound: {fileID: 8300000, guid: 46e4866335c30f542b35626131e5e834, type: 3}
 --- !u!1 &7741565208020280991
 GameObject:
   m_ObjectHideFlags: 0
