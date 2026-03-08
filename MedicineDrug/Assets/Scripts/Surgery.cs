@@ -7,6 +7,7 @@ public class Surgery : Interactable
 {
     public OperationQueueUI operationQueue;
     
+    
     void Start()
     {
         operationQueue = OperationQueueManager.instance.GetBar();
@@ -16,7 +17,8 @@ public class Surgery : Interactable
  
     public override void OnInteract(bool action, Player player)
     {
-        if(!AneMachine.instance.depleted)
+       // if(!AneMachine.instance.depleted)
+       print("SurgeryInteract"+action+" "+player.name);
         base.OnInteract(action, player);
     }
     public override void OnComplete()

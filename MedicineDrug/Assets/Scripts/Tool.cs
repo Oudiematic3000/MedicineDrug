@@ -4,10 +4,13 @@ public class Tool : Usable
 {
     public bool droppableOnFloor=false;
 
-    public virtual void OnPickup(Player player)
+    public virtual bool OnPickup(Player player)
     {
-        if (template.emptyHandRequired && player.heldTool) return;
-        if (template.toolNeeded != null && template.toolNeeded != player.heldTool) return;
+        if (template.emptyHandRequired && player.heldTool) { print("emptyneeded and not Empty"); return false; }
+        if (template.toolNeeded != null && template.toolNeeded != player.heldTool) { print("toolNeeded and Tool Mismatched"); return false; }
+        player.heldTool = this;
+        return true;
+
     }
 
     public virtual void OnPutDown(Player player)
