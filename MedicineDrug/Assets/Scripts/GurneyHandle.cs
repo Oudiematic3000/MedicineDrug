@@ -110,7 +110,11 @@ public class GurneyHandle : Tool
 
         gurneyRB = gurneyBody.gameObject.AddComponent<Rigidbody>();
         gurneyRB.mass = 450f;
-        gurneyRB.constraints=RigidbodyConstraints.FreezeRotationZ| RigidbodyConstraints.FreezeRotationX| RigidbodyConstraints.FreezeRotationY;
+        if (!gurneyBodyScript.inExitSpace)
+        {
+            gurneyRB.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+
+        }
         if (holdingPlayer && holdingPlayer.physicsHandle)
         {
             gurneyRB.linearVelocity = holdingPlayer.physicsHandle.linearVelocity;
