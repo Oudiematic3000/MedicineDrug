@@ -4858,7 +4858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d4ea5c18a3c40f46973a2905a1f92b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.52
+      value: 4.607
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d4ea5c18a3c40f46973a2905a1f92b3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4944,7 +4944,10 @@ PrefabInstance:
       addedObject: {fileID: 5695171612382521659}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d4ea5c18a3c40f46973a2905a1f92b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3322322308315106034}
+      addedObject: {fileID: 3295290306436717525}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d4ea5c18a3c40f46973a2905a1f92b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5619648133313172955}
   m_SourcePrefab: {fileID: 100100000, guid: 2d4ea5c18a3c40f46973a2905a1f92b3, type: 3}
 --- !u!4 &5078457408069427937 stripped
 Transform:
@@ -4977,7 +4980,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.979267, y: 3.9371486, z: 3.9488125}
   m_Center: {x: -0.024508012, y: 2.1316626, z: -0.013427137}
---- !u!114 &3322322308315106034
+--- !u!65 &3295290306436717525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562401525950429275}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.979267, y: 3.9371486, z: 3.9488125}
+  m_Center: {x: -0.024508012, y: 2.1316626, z: -0.013427137}
+--- !u!114 &5619648133313172955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4986,16 +5010,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5562401525950429275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6c0d902b89ff47b5fdec465c56b01, type: 3}
+  m_Script: {fileID: 11500000, guid: 3787102571bd7a4459f378a0bfe9c05a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  m_EditorClassIdentifier: Assembly-CSharp::Sink
   originalMaterial: {fileID: 0}
   objectRenderer: {fileID: 0}
-  template: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
+  template: {fileID: 0}
   interacting: 0
   completed: 0
   receivingInteractAction: 0
   progress: 0
   progressBar: {fileID: 0}
-  interactEffect: {fileID: 3759289639901246335}
+  interactEffect: {fileID: 0}
   completedEffect: {fileID: 0}
+  interactSound: {fileID: 8300000, guid: a90428d3b1cff2e4e90cbb9003d73364, type: 3}
+  completedSound: {fileID: 0}
+  usingSound: {fileID: 8300000, guid: 1743929576013c44f9f60c56b9881f5b, type: 3}

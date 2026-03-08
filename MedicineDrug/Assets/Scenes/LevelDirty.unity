@@ -427,26 +427,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3322322308315106034, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: usingSound
-      value: 
-      objectReference: {fileID: 8300000, guid: a90428d3b1cff2e4e90cbb9003d73364, type: 3}
-    - target: {fileID: 3322322308315106034, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: interactSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1743929576013c44f9f60c56b9881f5b, type: 3}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.607
@@ -487,48 +467,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5078457408069427937, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
       propertyPath: m_Name
       value: Sink (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5619648133313172955, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
+      propertyPath: template
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ee5815fd4f1d2e4ca3a2b023eefca83, type: 2}
+    - target: {fileID: 5619648133313172955, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
+      propertyPath: interactEffect
+      value: 
+      objectReference: {fileID: 182769047}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 182769049}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
---- !u!1 &182769047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5562401525950429275, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
+--- !u!198 &182769047 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3759289639901246335, guid: fa66b66f9f712a64fa9ec659ee8da42b, type: 3}
   m_PrefabInstance: {fileID: 182769046}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &182769049
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182769047}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.979267, y: 3.9371486, z: 3.9488125}
-  m_Center: {x: -0.024508012, y: 2.1316626, z: -0.013427137}
 --- !u!1001 &185334879
 PrefabInstance:
   m_ObjectHideFlags: 0
