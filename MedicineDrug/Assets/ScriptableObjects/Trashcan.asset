@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9f017631e8f2a4aa82023826df9a13, type: 3}
   m_Name: Trashcan
   m_EditorClassIdentifier: Assembly-CSharp::UsableTemplate
-  interactTime: 1
+  interactTime: 0.4
   toolNeeded: {fileID: 0}
   droppableOnFloor: 0
   emptyHandRequired: 0
