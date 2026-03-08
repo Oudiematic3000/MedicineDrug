@@ -125,6 +125,8 @@ public class Trolley : Tool
 
         trolleyRB = trolleyBody.parent.gameObject.AddComponent<Rigidbody>();
         trolleyRB.mass = 50f;
+        trolleyRB.constraints = RigidbodyConstraints.FreezeRotationX| RigidbodyConstraints.FreezeRotationZ;
+        
 
         if (holdingPlayer && holdingPlayer.physicsHandle)
         {

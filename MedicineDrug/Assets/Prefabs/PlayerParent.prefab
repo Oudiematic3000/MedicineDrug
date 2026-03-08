@@ -5856,8 +5856,8 @@ MonoBehaviour:
   dirtyPlayer: {fileID: 2100000, guid: d50f13ac21ec3014d833a9b62f921201, type: 2}
   cleanPlayer: {fileID: 2100000, guid: 4735e8f4866bb57419d71bb7cd2af84b, type: 2}
   rotationSpeed: 6
-  moveSpeed: 3.35
-  acceleration: 50
+  moveSpeed: 2
+  acceleration: 40
 --- !u!114 &5133083576659820743
 MonoBehaviour:
   m_ObjectHideFlags: 0
