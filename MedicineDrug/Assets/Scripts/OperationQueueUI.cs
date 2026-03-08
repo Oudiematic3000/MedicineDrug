@@ -35,7 +35,7 @@ public class OperationQueueUI : MonoBehaviour
     }
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(owner.transform.position + (new Vector3(1,1,0) * 1.5f));
+        transform.position = Camera.main.WorldToScreenPoint(owner.transform.position + (new Vector3(0.3f,6f,0) * 0.9f));
     }
 
     public void DequeueOperation()
