@@ -49,12 +49,12 @@ public class Player : MonoBehaviour, IGameplayActions
         if (!heldTool)
         {
             anim.SetBool("holding", false);
-            Debug.Log("Holding set to false (From checking if the player has a tool)");
+            //Debug.Log("Holding set to false (From checking if the player has a tool)");
         }
         else if (heldTool)
         {
             anim.SetBool("holding", true);
-            Debug.Log("Holding set to true (From checking if the player has a tool)");
+            //Debug.Log("Holding set to true (From checking if the player has a tool)");
         }
     }
     public void OnInteract(InputAction.CallbackContext context)
