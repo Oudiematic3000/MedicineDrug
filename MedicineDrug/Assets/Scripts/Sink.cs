@@ -14,5 +14,6 @@ public class Sink : Interactable
     public override void OnComplete()
     {
         player.GetComponent<Player>().makeClean();
+        player.GetComponent<Player>().sparkleEffect();
     }
 }

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour, IGameplayActions
     public Rigidbody physicsHandle;
     Vector2 moveInput;
     public ParticleSystem dust;
+    public ParticleSystem sparkle;
+    public AudioClip sparkleSound;
     public int bottomRand, topRand;
     private int randomOpCount;
     private int numOperations;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour, IGameplayActions
     
     private void Awake()
     {
+        sparkle.Pause();
         rb = GetComponent<Rigidbody>();
         defaultRotationSpeed = rotationSpeed;
         defaultMoveSpeed=moveSpeed;
@@ -63,6 +66,12 @@ public class Player : MonoBehaviour, IGameplayActions
             anim.SetBool("holding", true);
             //Debug.Log("Holding set to true (From checking if the player has a tool)");
         }
+    }
+
+    public void sparkleEffect()
+    {
+        AudioManager.instance.PlaySFX(sparkleSound);
+        sparkle.Play();
     }
 
     public void makeDirty()
