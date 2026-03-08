@@ -87,6 +87,7 @@ public class Trolley : Tool
         {
             transform.position = holdOffset.position;
             transform.rotation = holdOffset.rotation;
+            Debug.Log("Shite");
         }
     }
 
