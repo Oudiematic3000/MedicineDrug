@@ -25,7 +25,7 @@ public class Interactable : Usable
         if (!completed)
         {
             interacting = action;
-            interactEffect.Play();
+            if (interactEffect) interactEffect.Play();
             AudioManager.instance.PlayLoopingWhile(usingSound, ()=>interacting);
             AudioManager.instance.PlayLoopingWhile(interactSound, ()=>interacting);
             if (progressBar) return;
@@ -45,14 +45,14 @@ public class Interactable : Usable
         }else if(!interacting && progress < template.interactTime && progress>0)
         {
             progress -= Time.deltaTime/1.5f;
-            interactEffect.Stop();
+            if (interactEffect) interactEffect.Stop();
         }
         else if(progress>=template.interactTime)
         {
             progress = template.interactTime;
             OnComplete();
             Debug.Log("complete"+name);
-            interactEffect.Stop();
+            if (interactEffect) interactEffect.Stop();
             completed = true;
             progress = 0f;
             interacting=false;
@@ -75,7 +75,7 @@ public class Interactable : Usable
 
     public virtual void OnComplete()
     {
-
+        
     }
 
 }
