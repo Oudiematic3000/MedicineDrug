@@ -6504,9 +6504,9 @@ MonoBehaviour:
   progressBar: {fileID: 0}
   interactEffect: {fileID: 0}
   completedEffect: {fileID: 0}
-  interactSound: {fileID: 0}
+  interactSound: {fileID: 8300000, guid: b57521457642cf8498a530493dadbc5f, type: 3}
   completedSound: {fileID: 0}
-  usingSound: {fileID: 0}
+  usingSound: {fileID: 8300000, guid: b57521457642cf8498a530493dadbc5f, type: 3}
 --- !u!1 &1886971015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7891071308616399988, guid: e48e24dc18f9c9f4da30ec96ff8dd536, type: 3}
