@@ -7,4 +7,5 @@ public class UsableTemplate : ScriptableObject
    [SerializeField] public float interactTime;
    [SerializeField] public UsableTemplate toolNeeded;
    [SerializeField] public bool droppableOnFloor;
+    public bool emptyHandRequired=false;
 }
