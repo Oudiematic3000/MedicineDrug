@@ -26,7 +26,7 @@ public class Interactable : Usable
         {
             interacting = action;
             interactEffect.Play();
-            //AudioManager.instance.PlaySFX();
+            AudioManager.instance.PlayLoopingWhile(usingSound, ()=>interacting);
             if (progressBar) return;
             progressBar = ProgressBarManager.instance.GetBar();
             progressBar.Init(transform.position + (Vector3.up * 1.5f), this);
@@ -45,7 +45,6 @@ public class Interactable : Usable
         {
             progress -= Time.deltaTime/1.5f;
             interactEffect.Stop();
-            //Stop playing the audio
         }
         else if(progress>=template.interactTime)
         {
@@ -60,7 +59,7 @@ public class Interactable : Usable
             progressBar = null;
             LeanTween.delayedCall(1f, () =>
             {
-                completed= false;   
+                completed= false;
             });
         }
         else if (progress <= 0)
