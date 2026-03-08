@@ -21,11 +21,12 @@ public class Player : MonoBehaviour, IGameplayActions
     private int numOperations;
     public Material dirtyPlayer;
     public Material cleanPlayer;
-
+    public bool isDirty=false;
     public float rotationSpeed, moveSpeed, acceleration;
     float defaultRotationSpeed, defaultMoveSpeed, defaultAcceleration;
+    public bool locked=false;
 
-    public static event Action oninteract;
+    public event Action oninteract;
     
     private void Awake()
     {
@@ -39,8 +40,7 @@ public class Player : MonoBehaviour, IGameplayActions
  
     void Start()
     {
-        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand);
-        makeDirty();
+        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand+1);
         dust.Stop();
     }
     void Update()
@@ -74,33 +74,37 @@ public class Player : MonoBehaviour, IGameplayActions
         sparkle.Play();
     }
 
-    public void makeDirty()
+    public void MakeDirty()
     {
-        this.GetComponentInChildren<SkinnedMeshRenderer>().material = dirtyPlayer;
+        GetComponentInChildren<SkinnedMeshRenderer>().material = dirtyPlayer;
     }
 
-    public void makeClean()
+    public void MakeClean()
     {
-        this.GetComponentInChildren<SkinnedMeshRenderer>().material = cleanPlayer;
+        GetComponentInChildren<SkinnedMeshRenderer>().material = cleanPlayer;
     }
 
-    public void checkDirty()
+    public void CheckDirty()
     {
         if (numOperations == randomOpCount)
         {
-            makeDirty();
+            MakeDirty();
+            isDirty = true;
         }
     }
 
-    public void incrementOperation()
+    public void IncrementOperation()
     {
         numOperations++;
+        CheckDirty();
     }
 
-    public void resetOperation()
+    public void ResetOperation()
     {
         numOperations = 0;
-        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand);
+        randomOpCount = UnityEngine.Random.Range(bottomRand, topRand+1);
+        MakeClean();
+        isDirty = false;
     }
     
     public void OnInteract(InputAction.CallbackContext context)
@@ -121,7 +125,8 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnLock(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (context.performed) locked = true;
+        else if(context.canceled)locked = false;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -174,8 +179,9 @@ public class Player : MonoBehaviour, IGameplayActions
               
                     float turn = moveInput.x * turnSpeed * Time.deltaTime;
                     transform.Rotate(0, turn, 0);
-                
 
+                if (locked) forwardSpeed = 0;
+                else forwardSpeed = moveSpeed;
                 Vector3 forwardMove = transform.forward * moveInput.y * forwardSpeed;
 
                 rb.linearVelocity = Vector3.MoveTowards(
@@ -191,7 +197,7 @@ public class Player : MonoBehaviour, IGameplayActions
             Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
+           if(!locked) rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
             }
         }
 
@@ -201,7 +207,7 @@ public class Player : MonoBehaviour, IGameplayActions
             Quaternion targetRotation = Quaternion.LookRotation(moveInput3);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
+            if(!locked)rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, moveInput3 * moveSpeed, acceleration * Time.deltaTime);
         }
        
     }

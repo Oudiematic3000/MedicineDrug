@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLogicD
   triggeredCollider: {fileID: 0}
   objectPresent: 0
+  parent: {fileID: 1187313226397854468}
 --- !u!1001 &2190458183995052078
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OperationQueueUI
   operationBubblesList: []
+  placement: {x: -0.5, y: 6, z: 0}
+  scalar: 1
   owner: {fileID: 0}
 --- !u!114 &1516240659393223644
 MonoBehaviour:

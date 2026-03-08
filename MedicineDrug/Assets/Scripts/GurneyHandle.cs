@@ -21,9 +21,10 @@ public class GurneyHandle : Tool
 
     public GurneyBody gurneyBodyScript;
     public static event Action<bool> OnGurneyPickup;
+    public GurneyHandle partner;
     public override bool OnPickup(Player player)
     {
-        if (holdingPlayer) return false;
+        if (holdingPlayer ||partner.holdingPlayer) return false;
         if (gurneyBodyScript.patient.operationQueue)
         {
             if (gurneyBodyScript.patient.operationQueue.operationBubbles.Count > 0) return false;
@@ -81,8 +82,7 @@ public class GurneyHandle : Tool
         if (gurneyBodyScript.inMachineSpace) gurneyBodyScript.UnsnapFromTrigger();
 
         if (gurneyBody.TryGetComponent<Rigidbody>(out gurneyRB)) Destroy(gurneyRB);
-
-        OnGurneyPickup?.Invoke(true);
+            OnGurneyPickup?.Invoke(true);
         holdingPlayer.transform.rotation =
             Quaternion.LookRotation(-gurneyBody.forward*swapForward, Vector3.up);
 
@@ -106,18 +106,24 @@ public class GurneyHandle : Tool
     void DetachTrolley()
     {
         gurneyBody.SetParent(null);
-        OnGurneyPickup?.Invoke(false);
+       
 
         gurneyRB = gurneyBody.gameObject.AddComponent<Rigidbody>();
-        gurneyRB.mass = 50f;
-
+        gurneyRB.mass = 450f;
+        gurneyRB.constraints=RigidbodyConstraints.FreezeRotationZ| RigidbodyConstraints.FreezeRotationX| RigidbodyConstraints.FreezeRotationY;
         if (holdingPlayer && holdingPlayer.physicsHandle)
         {
             gurneyRB.linearVelocity = holdingPlayer.physicsHandle.linearVelocity;
         }
+        //Player[] players = GameObject.FindObjectsByType<Player>(FindObjectsSortMode.None);
+        //bool anyFound = false;
+        //foreach (Player p in players) if (p.heldTool && p.heldTool.GetComponentInChildren<GurneyHandle>()) anyFound = true;
+        //if (!anyFound)
+            OnGurneyPickup?.Invoke(false);
         if (gurneyBodyScript.inMachineSpace) gurneyBodyScript.SnapToTrigger();
+        
     }
-
+    
     private void Update()
     {
 

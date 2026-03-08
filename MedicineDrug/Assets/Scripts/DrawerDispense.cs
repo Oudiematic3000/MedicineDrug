@@ -8,15 +8,24 @@ public class DrawerDispense : MonoBehaviour
     public Collider presentObject;
     public Tool toolToSpawn;
     public AudioClip interactSound;
-
+    public Player player;
     private void OnEnable()
     {
-        Player.oninteract += spawnTool;
     }
 
     private void OnDisable()
     {
-        Player.oninteract -= spawnTool;
+        
+    }
+
+    public void Subscribe(Player player)
+    {
+        this.player = player;
+        this.player.oninteract += spawnTool;
+    }
+    public void Unsubscribe()
+    {
+        player.oninteract -= spawnTool;
     }
 
     public void Update()

@@ -123,6 +123,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9e280c73-3bed-408c-84cf-4c5dc87747c5",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "44821682-e0e1-471f-a80a-a90ef0b5cda6",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
