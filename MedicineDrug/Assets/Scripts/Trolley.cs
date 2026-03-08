@@ -20,11 +20,11 @@ public class Trolley : Tool
 
 
 
-    public override bool OnPickup(Player player)
+    public override void OnPickup(Player player)
     {
-        if (holdingPlayer) return false;
+        if (holdingPlayer) return;
 
-        if (!base.OnPickup(player)) return false;
+        base.OnPickup(player);
 
         holdingPlayer = player;
         held = true;
@@ -33,7 +33,6 @@ public class Trolley : Tool
 
         AttachTrolley();
         DisableWheels();
-        return true;
     }
 
     public override void OnPutDown(Player player)
@@ -94,27 +93,14 @@ public class Trolley : Tool
     void FixedUpdate()
     {
         if (sound == null || !sound.gameObject.activeSelf) sound = AudioManager.instance.PlayLoopingWhile(movingSound, ()=>moving);
-        if (!trolleyRB)
+        
+        if (trolleyRB.linearVelocity.magnitude > 0.1)
         {
-            if (holdingPlayer.rb.linearVelocity.magnitude > 0.1)
-            {
-                moving = true;
-            }
-            else
-            {
-                moving = false;
-            }
+            moving = true;
         }
         else
         {
-            if (trolleyRB.linearVelocity.magnitude > 0.1)
-            {
-                moving = true;
-            }
-            else
-            {
-                moving = false;
-            }
+            moving = false;
         }
         
         if (!holdingPlayer) return;
