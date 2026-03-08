@@ -2,106 +2,102 @@ using UnityEngine;
 
 public class GurneyHandle : Tool
 {
-    [SerializeField] public Transform gurneyParent;
-    [SerializeField] GameObject gurneyBody;
-    public float rotationSpeed, moveSpeed, acceleration;
-    public WheelCollider[] wheels;
-    public bool held;
-    public HingeJoint joint;
-    public Rigidbody gurneyRB;
-    public Player holdingPlayer;
-    [SerializeField] Vector3 grabDirection;
-    [SerializeField] float grabDistance;
+  
+    [SerializeField] Transform gurneyBody;
+    [SerializeField] Transform holdOffset;
 
-    public TrolleyJointSettings jointSettings;
+    public float rotationSpeed;
+    public float moveSpeed;
+    public float acceleration;
+
+    public WheelCollider[] wheels;
+    public Rigidbody gurneyRB;
+
+    public bool held;
+    public Player holdingPlayer;
+    public int swapForward=1;
     public override void OnPickup(Player player)
     {
         if (holdingPlayer) return;
+
         base.OnPickup(player);
 
-        player.SetTemporaryMovement(rotationSpeed, moveSpeed, acceleration);
-        DisableWheels();
         holdingPlayer = player;
         held = true;
-        AttachTrolley();
 
+        player.SetTemporaryMovement(rotationSpeed, moveSpeed, acceleration);
+
+        AttachTrolley();
+        DisableWheels();
     }
 
     public override void OnPutDown(Player player)
     {
         base.OnPutDown(player);
+
         DetachTrolley();
-        player.RevertMovementToDefault();
+
         EnableWheels();
+
+        player.RevertMovementToDefault();
+
         holdingPlayer = null;
         held = false;
-
     }
-
+  
     void DisableWheels()
     {
-        foreach (var wheel in wheels) wheel.enabled = false;
-
-        Rigidbody rb = GetComponentInParent<Rigidbody>();
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.detectCollisions = true;
-
-
+        foreach (var wheel in wheels)
+            wheel.enabled = false;
+        if (gurneyBody.TryGetComponent<Rigidbody>(out gurneyRB))
+        {
+            gurneyRB.linearVelocity = Vector3.zero;
+            gurneyRB.angularVelocity = Vector3.zero;
+        }
     }
 
     void EnableWheels()
     {
-        foreach (var wheel in wheels) { wheel.enabled = true; }
+        foreach (var wheel in wheels)
+            wheel.enabled = true;
     }
+    public float grabDistance = -0.9f;
 
-    public void AttachTrolley()
+    void AttachTrolley()
     {
+        if (gurneyBody.TryGetComponent<Rigidbody>(out gurneyRB)) Destroy(gurneyRB);
 
-        
-        Vector3 targetPosition = gurneyParent.transform.position - gurneyParent.forward * grabDirection.z* grabDistance;
+
+        holdingPlayer.transform.rotation =
+            Quaternion.LookRotation(-gurneyBody.forward*swapForward, Vector3.up);
+
+
+        Vector3 targetPosition =
+            gurneyBody.position - gurneyBody.forward*swapForward * grabDistance;
+
         targetPosition.y = holdingPlayer.transform.position.y;
 
         holdingPlayer.transform.position = targetPosition;
-        holdingPlayer.transform.rotation = Quaternion.LookRotation(gurneyParent.forward * grabDirection.z, Vector3.up);
 
-        joint = gurneyParent.gameObject.AddComponent<HingeJoint>();
-        joint.connectedBody = holdingPlayer.physicsHandle;
-        joint.anchor = jointSettings.anchor;
-        joint.axis = jointSettings.axis;
+        gurneyBody.SetParent(holdingPlayer.transform);
 
-        joint.autoConfigureConnectedAnchor = jointSettings.autoConfigureConnectedAnchor;
-        joint.connectedAnchor = jointSettings.connectedAnchor;
-
-        joint.useSpring = jointSettings.useSpring;
-
-        JointSpring spring = new JointSpring();
-        spring.spring = jointSettings.spring;
-        spring.damper = jointSettings.damper;
-        spring.targetPosition = jointSettings.targetPosition;
-        joint.spring = spring;
-
-        joint.useMotor = jointSettings.useMotor;
-
-        joint.useLimits = jointSettings.useLimits;
-        joint.extendedLimits = jointSettings.extendedLimits;
-
-        JointLimits limits = new JointLimits();
-        limits.min = jointSettings.minLimit;
-        limits.max = jointSettings.maxLimit;
-        limits.bounciness = jointSettings.bounciness;
-        limits.bounceMinVelocity = jointSettings.bounceMinVelocity;
-        limits.contactDistance = jointSettings.contactDistance;
-
-        joint.limits = limits;
+        if (holdOffset)
+        {
+            transform.position = holdOffset.position;
+            transform.rotation = holdOffset.rotation;
+        }
     }
 
-    public void DetachTrolley()
+    void DetachTrolley()
     {
-        if (joint != null)
-        {
-            Destroy(joint);
+        gurneyBody.SetParent(null);
 
+        gurneyRB = gurneyBody.gameObject.AddComponent<Rigidbody>();
+        gurneyRB.mass = 50f;
+
+        if (holdingPlayer && holdingPlayer.physicsHandle)
+        {
+            gurneyRB.linearVelocity = holdingPlayer.physicsHandle.linearVelocity;
         }
     }
 

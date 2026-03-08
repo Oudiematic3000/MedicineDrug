@@ -2933,6 +2933,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!1 &482212951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482212952}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482212952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482212951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13, y: 1.392, z: 1.169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1056899936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &525726047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7891071308616399988, guid: e48e24dc18f9c9f4da30ec96ff8dd536, type: 3}
@@ -3770,6 +3801,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!4 &1056899936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1745256846601011913, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+  m_PrefabInstance: {fileID: 1522142931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1070930495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4852,8 +4888,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3506439121709269427, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: holdOffset
+      value: 
+      objectReference: {fileID: 482212952}
+    - target: {fileID: 3506439121709269427, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: maxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506439121709269427, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: trolleyBody
+      value: 
+      objectReference: {fileID: 1056899936}
+    - target: {fileID: 3506439121709269427, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: rotationSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608139404749541208, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4190249285044323878, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
       propertyPath: playerAnimator
@@ -4909,7 +4961,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1745256846601011913, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 482212952}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f001c825621e3942b51d2b645e2ae91, type: 3}
 --- !u!1001 &1529636056
