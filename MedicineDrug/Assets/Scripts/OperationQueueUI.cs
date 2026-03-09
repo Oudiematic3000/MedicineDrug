@@ -60,7 +60,6 @@ public class OperationQueueUI : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             operationBubblesList[i].toolNeeded = list[Random.Range(0, list.Length)];
-            operationBubblesList[i].testText.text = operationBubblesList[i].toolNeeded.name;
             operationBubblesList[i].image.sprite = operationBubblesList[i].toolNeeded.sprite;
         }
         owner.template.toolNeeded = GetToolNeeded();
