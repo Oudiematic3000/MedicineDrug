@@ -10,6 +10,7 @@ public class Surgery : Interactable
     public bool allOperations = false;
     public GurneyBody body;
     public ParticleSystem bloodEffect;
+    public Canvas canvas;
     void Start()
     {
         
@@ -25,6 +26,7 @@ public class Surgery : Interactable
             col.excludeLayers = 1 << exitWallLayer;
         }
         body.GetComponent<BoxCollider>().excludeLayers = 1 << exitWallLayer;
+        canvas.gameObject.SetActive(true);
     }
     public void StartQueue()
     {

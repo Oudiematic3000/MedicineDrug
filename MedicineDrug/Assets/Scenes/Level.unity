@@ -7025,61 +7025,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2945242665783932036, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945242665783932036, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945242665783932036, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945242665783932036, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3816859098765268527, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.149
-      objectReference: {fileID: 0}
-    - target: {fileID: 3816859098765268527, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.081
-      objectReference: {fileID: 0}
     - target: {fileID: 5393193418449470385, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
       propertyPath: m_Name
       value: AneMachine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477748402428555005, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: tickDownModifier
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Size.x
-      value: 1.1506143
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Size.y
-      value: 1.1556728
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Size.z
-      value: 0.51113796
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Center.x
-      value: 0.010070235
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Center.y
-      value: 0.596467
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981944085587015904, guid: 0066b7b25110d0a409eca359c8181928, type: 3}
-      propertyPath: m_Center.z
-      value: -0.039249897
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
