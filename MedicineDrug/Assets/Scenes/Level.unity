@@ -7161,6 +7161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GurneyParent
       objectReference: {fileID: 0}
+    - target: {fileID: 6200008657128488690, guid: cf87415e093390843bda37921db77e12, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
