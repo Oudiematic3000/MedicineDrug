@@ -55,7 +55,7 @@ public class AneMachine : Interactable
             OnComplete();
             completed = true;
             interacting = false;
-            lightBreatheLT.cancel(gameObject);
+            LeanTween.cancel(lightBreatheLT.uniqueId);
             depletedLight.intensity = 0;
             breathing=false;
             LeanTween.delayedCall(1f, () =>

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int patientsToWin=6;
     public TextMeshProUGUI scoreText, shiftTimerText;
     public Animator clipBoard;
+    public AudioClip clipBoardSound;
     public GameObject[] hearts;
     bool shiftOver=false, dutiesDone=false;
     private void Awake()
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         else
         {
             clipBoard.Play("ClipboardSlide");
+            AudioManager.instance.PlaySFX(clipBoardSound);
         }
 
     }
