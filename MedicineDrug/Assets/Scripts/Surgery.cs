@@ -54,7 +54,11 @@ public class Surgery : Interactable
     AudioSource src = null;
     public void PlayHeartMonitorBeep()
     {
-        if (allOperations) {
+        if (GameManager.instance.gamePaused) return;
+
+        if (allOperations) 
+        {
+            if(src)
             src.Stop();
             src = null; 
             return; 

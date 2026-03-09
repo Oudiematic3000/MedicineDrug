@@ -15,7 +15,9 @@ public class EnterTrigger : MonoBehaviour
             if (!gurneyBodies.Contains(gurney))
             {
                 gurneyBodies.Add(gurney);
-               graceTimer= LeanTween.delayedCall(0.8f, CheckGurneys);
+                if (graceTimer != null)
+                    LeanTween.cancel(graceTimer.uniqueId);
+                graceTimer = LeanTween.delayedCall(0.8f, CheckGurneys);
             }
         }
     }
@@ -35,16 +37,30 @@ public class EnterTrigger : MonoBehaviour
     public void CheckGurneys()
     {
         if (gurneyBodies.Count > 0)
-        { 
-            StartLoseTimer();
+        {
+            if (loseTimer == null) 
+                StartLoseTimer();
         }
         else
         {
-            if(vignetteTimer!=null)
-            LeanTween.cancel(vignetteTimer.uniqueId);
-            vignetteLeaveTimer = LeanTween.value(vignette.color.a, 0, 1f).setOnUpdate((float val) => { vignette.color = new Color(1, 1, 1, val); });
-            if(loseTimer!=null)
-            LeanTween.cancel(loseTimer.uniqueId);
+            if (loseTimer != null)
+            {
+                Debug.Log("LoseTimerCancelled");
+                LeanTween.cancel(loseTimer.uniqueId);
+                loseTimer = null;
+            }
+
+            if (vignetteTimer != null)
+            {
+                LeanTween.cancel(vignetteTimer.uniqueId);
+                vignetteTimer = null;
+            }
+
+            vignetteLeaveTimer = LeanTween.value(vignette.color.a, 0, 1f)
+                .setOnUpdate((float val) =>
+                {
+                    vignette.color = new Color(1, 1, 1, val);
+                });
         }
     }
     public void StartLoseTimer()

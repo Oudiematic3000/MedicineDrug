@@ -5,7 +5,6 @@ public class ThrowAway : Interactable
     private Player player;
     public override void OnInteract(bool action, Player player)
     {
-        base.OnInteract(action, player);
         this.player = player;
 
         if (!this.player.heldTool)
@@ -13,13 +12,18 @@ public class ThrowAway : Interactable
             player = null;
             return;
         }
+        base.OnInteract(action, player);
+      
     }
 
     public override void OnComplete()
     {
         base.OnComplete();
-        Tool tool = player.heldTool;
-        Destroy(tool.gameObject);
-        player.heldTool = null;
+      
+            Tool tool = player.heldTool;
+            Destroy(tool.gameObject);
+            player.heldTool = null;
+        
+
     }
 }

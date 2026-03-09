@@ -16,12 +16,13 @@ public class LaunchSpawner : MonoBehaviour
     
     void launch()
     {
+        if (GameManager.instance.gamePaused) return;
         var newSpawn =  Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
         newSpawn.GetComponent<Rigidbody>().AddForce(spawnForce, ForceMode.Impulse);
         RateIncrease();
         LeanTween.delayedCall(spawnTimer, launch);
     }
-    public void RateIncrease()
+    public void RateIncrease()  
     {
         if (spawnTimer <= maxSpawnTimer) return;
         count++;

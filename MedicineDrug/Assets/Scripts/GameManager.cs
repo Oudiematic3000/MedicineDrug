@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public AudioClip clipBoardSound;
     public GameObject[] hearts;
     bool shiftOver=false, dutiesDone=false;
+    public LoseScreen loseScreen;
     private void Awake()
     {
         if(!instance)instance = this;
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        loseScreen.gameObject.SetActive(true);
+        loseScreen.LoseAnimation();
+        PauseGame();
 
     }
 
