@@ -10,7 +10,6 @@ public class OperationBubble : MonoBehaviour
     public bool running=false;
     public Slider slider;
     public OperationQueueUI queueUI;
-    public TextMeshProUGUI testText;
     public Image image;
     void Start()
     {
