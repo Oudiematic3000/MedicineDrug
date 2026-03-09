@@ -5,7 +5,9 @@ public class AneMachine : Interactable
     public static AneMachine instance;
     public bool depleted=false;
     public float delta;
-    public float tickDownModifier=1.5f;
+    public float tickDownModifier=1.5f, lightDuration;
+    public Light depletedLight;
+    LTDescr lightBreatheLT;
     void Start()
     {
         progress = template.interactTime;
@@ -53,6 +55,9 @@ public class AneMachine : Interactable
             OnComplete();
             completed = true;
             interacting = false;
+            lightBreatheLT.cancel(gameObject);
+            depletedLight.intensity = 0;
+            breathing=false;
             LeanTween.delayedCall(1f, () =>
             {
                 completed = false;
@@ -75,6 +80,18 @@ public class AneMachine : Interactable
     }
     public void OnDeplete()
     {
-
+        lightBreathe();
+    }
+    bool breathing=false;
+    public void lightBreathe()
+    {
+        if (breathing) return;
+        breathing = true;
+        lightBreatheLT =LeanTween.value(gameObject, 0, 0.48f, lightDuration)
+            .setEase(LeanTweenType.easeInOutSine)
+            .setLoopPingPong()
+            .setOnUpdate((float val) => {
+                depletedLight.intensity = val;
+            });
     }
 }

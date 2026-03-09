@@ -10,7 +10,9 @@ public class OperationQueueUI : MonoBehaviour
     ObjectPool<OperationQueueUI> pool;
     public Queue<OperationBubble> operationBubbles=new Queue<OperationBubble>();
     public List<OperationBubble> operationBubblesList = new List<OperationBubble>();
-    public Interactable owner;
+    public Vector3 placement = new Vector3(0.3f, 6f, 0);
+    public float scalar=1f;
+    public Surgery owner;
     void Start()
     {
         foreach (Transform t in transform)
@@ -29,13 +31,13 @@ public class OperationQueueUI : MonoBehaviour
     {
         this.pool = pool;
     }
-    public void Init(Interactable owner)
+    public void Init(Surgery owner)
     {
         this.owner = owner;
     }
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(owner.transform.position + (new Vector3(0.3f,6f,0) * 0.9f));
+        transform.position = Camera.main.WorldToScreenPoint(owner.transform.position + (placement * scalar));
     }
 
     public void DequeueOperation()
@@ -45,7 +47,7 @@ public class OperationQueueUI : MonoBehaviour
         var topBubble = operationBubbles.Peek();
         operationBubbles.Dequeue();
         Destroy(topBubble.gameObject);
-        if (operationBubbles.Count <= 0) return;
+        if (operationBubbles.Count <= 0) { owner.AllOperationsComplete(); return; }
         operationBubbles.Peek().Run();
         owner.template.toolNeeded=GetToolNeeded();
 
@@ -59,6 +61,7 @@ public class OperationQueueUI : MonoBehaviour
         {
             operationBubblesList[i].toolNeeded = list[Random.Range(0, list.Length)];
             operationBubblesList[i].testText.text = operationBubblesList[i].toolNeeded.name;
+            operationBubblesList[i].image.sprite = operationBubblesList[i].toolNeeded.sprite;
         }
         owner.template.toolNeeded = GetToolNeeded();
     }

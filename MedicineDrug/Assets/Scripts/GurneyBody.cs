@@ -4,7 +4,7 @@ public class GurneyBody : MonoBehaviour
 {
     public Surgery patient;
     public GurneyHandle headHandle, feetHandle;
-    public bool inMachineSpace = false, snapped=false;
+    public bool inMachineSpace = false, snapped=false, inExitSpace;
     public MachineTrigger machineTrigger;
     
     public void SnapToTrigger()

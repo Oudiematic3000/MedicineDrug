@@ -15,3 +15,5 @@ MonoBehaviour:
   interactTime: 4
   toolNeeded: {fileID: 0}
   droppableOnFloor: 0
+  emptyHandRequired: 0
+  sprite: {fileID: 21300000, guid: 69b813f5c6824d94383f018a8f0ded06, type: 3}

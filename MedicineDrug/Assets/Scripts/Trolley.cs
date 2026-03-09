@@ -69,7 +69,7 @@ public class Trolley : Tool
     void AttachTrolley()
     {
         Destroy(trolleyRB);
-
+        trolleyBody.parent.rotation = Quaternion.Euler(0, trolleyBody.rotation.y, 0);
         holdingPlayer.transform.rotation =
             Quaternion.LookRotation(-trolleyBody.forward, Vector3.up);
 
@@ -125,6 +125,8 @@ public class Trolley : Tool
 
         trolleyRB = trolleyBody.parent.gameObject.AddComponent<Rigidbody>();
         trolleyRB.mass = 50f;
+        trolleyRB.constraints = RigidbodyConstraints.FreezeRotationX| RigidbodyConstraints.FreezeRotationZ;
+        
 
         if (holdingPlayer && holdingPlayer.physicsHandle)
         {

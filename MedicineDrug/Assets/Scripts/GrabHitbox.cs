@@ -34,8 +34,11 @@ public class GrabHitbox : MonoBehaviour
         else usable = other.GetComponent<Usable>();
         usable.objectRenderer.material=usable.originalMaterial;
         CancelInteraction();
-        highlightedUsable = null;
-        usableGO = null;
+        if (highlightedUsable == other.GetComponent<Usable>())
+        {
+            highlightedUsable = null;
+            usableGO = null;
+        }
     }
 
     public void PickupAction(Player player)

@@ -11,6 +11,7 @@ public class OperationBubble : MonoBehaviour
     public Slider slider;
     public OperationQueueUI queueUI;
     public TextMeshProUGUI testText;
+    public Image image;
     void Start()
     {
     }
@@ -38,6 +39,7 @@ public class OperationBubble : MonoBehaviour
     }
     public void OnTimeOut()
     {
+        GameManager.instance.SubtractLife();
         queueUI.DequeueOperation();
     }
 }
