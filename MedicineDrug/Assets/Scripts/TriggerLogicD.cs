@@ -63,21 +63,39 @@ public class TriggerLogicD : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        triggeredCollider = other;
-        objectPresent = true;
-        if (other.GetComponentInChildren<Trolley>())
+       // if (other.GetComponentInChildren<Player>()) return;
+
+       
+        //if (other.GetComponentInChildren<Trolley>())
+        //{
+        //    triggeredCollider = other;
+        //    objectPresent = true;
+        //    if (!other.GetComponentInChildren<Trolley>().holdingPlayer)return;
+        //    parent.Subscribe(other.GetComponentInChildren<Trolley>().holdingPlayer);
+        //}
+        if (other.gameObject.CompareTag("Trolley"))
         {
-            if(!other.GetComponentInChildren<Trolley>().holdingPlayer)return;
+            triggeredCollider = other;
+            objectPresent = true;
+            if (!other.GetComponentInChildren<Trolley>().holdingPlayer) return;
             parent.Subscribe(other.GetComponentInChildren<Trolley>().holdingPlayer);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        triggeredCollider = null;
-        objectPresent = false;
-        if (other.GetComponentInChildren<Trolley>())
+       // if (other.GetComponentInChildren<Player>()) return;
+
+        //if (other.GetComponentInChildren<Trolley>())
+        //{
+        //    triggeredCollider = null;
+        //    objectPresent = false;
+        //    parent.Unsubscribe();
+        //}
+        if (other.gameObject.CompareTag("Trolley"))
         {
+            triggeredCollider = null;
+            objectPresent = false;
             parent.Unsubscribe();
         }
     }
