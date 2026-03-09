@@ -12,6 +12,7 @@ public class Surgery : Interactable
     public ParticleSystem bloodEffect;
     public Canvas canvas;
     public AudioClip heartMonitor, suffering;
+    public GameObject heart, lung, intestine;
 
     void Start()
     {
@@ -79,6 +80,22 @@ public class Surgery : Interactable
         operationQueue.DequeueOperation();
         lastOperator.IncrementOperation();
         if(lastOperator.isDirty) bloodEffect.Play();
+        burstOrgans();
+    }
+
+    private void burstOrgans()
+    {
+        GameObject[] organs = new GameObject[3];
+        organs[0] = heart;
+        organs[1] = lung;
+        organs[2] = intestine;
+        //Debug.Log("burstOrgans");
+        
+        Vector3 spawnForce = new Vector3(Random.Range(1000.0f, 2000.0f), Random.Range(1000.0f, 2000.0f), Random.Range(1000.0f, 2000.0f));
+        GameObject newOrgan = organs[Random.Range(0, 3)];
+        Instantiate(newOrgan, transform.position + Vector3.up, Quaternion.identity);
+        newOrgan.GetComponent<Rigidbody>().AddForce(spawnForce, ForceMode.Impulse);
+
     }
    
 }
