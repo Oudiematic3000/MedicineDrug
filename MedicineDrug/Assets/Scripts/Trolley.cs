@@ -18,7 +18,7 @@ public class Trolley : Tool
     public bool moving;
     public AudioClip movingSound;
 
-
+    public static event Action<bool> OnTrolleyHeld;
 
     public override bool OnPickup(Player player)
     {
@@ -88,6 +88,7 @@ public class Trolley : Tool
             transform.position = holdOffset.position;
             transform.rotation = holdOffset.rotation;
         }
+        OnTrolleyHeld?.Invoke(true);
     }
 
     public AudioSource sound;
@@ -132,5 +133,7 @@ public class Trolley : Tool
         {
             trolleyRB.linearVelocity = holdingPlayer.physicsHandle.linearVelocity;
         }
+        OnTrolleyHeld?.Invoke(false);
+
     }
 }
