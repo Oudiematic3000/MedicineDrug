@@ -78,6 +78,7 @@ public class TriggerLogicD : MonoBehaviour
             triggeredCollider = other;
             objectPresent = true;
             if (!other.GetComponentInChildren<Trolley>().holdingPlayer) return;
+            parent.Unsubscribe();
             parent.Subscribe(other.GetComponentInChildren<Trolley>().holdingPlayer);
         }
     }

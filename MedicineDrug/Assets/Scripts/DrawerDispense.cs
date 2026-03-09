@@ -25,42 +25,52 @@ public class DrawerDispense : MonoBehaviour
     }
     public void Unsubscribe()
     {
-        if(this.player != null)
-        player.oninteract -= spawnTool;
+        if (player != null)
+        {
+            player.oninteract -= spawnTool;
+            player = null;
+        }
     }
 
-    public void Update()
+    void Update()
     {
-        if (trigger.GetComponent<TriggerLogicD>().objectPresent)
+        var triggerLogic = trigger.GetComponent<TriggerLogicD>();
+
+        trolleyPresent = false;
+        presentObject = null;
+
+        if (!triggerLogic.objectPresent)
+            return;
+
+        var collider = triggerLogic.triggeredCollider;
+        if (collider == null)
+            return;
+
+        var trolley = collider.GetComponentInChildren<Trolley>();
+        if (trolley != null)
         {
-            presentObject = trigger.GetComponent<TriggerLogicD>().triggeredCollider;
-        
-            if (presentObject.GetComponentInChildren<Trolley>())
-            {
-                trolleyPresent = true;
-            }
-            
-        }
-        else
-        {
-            trolleyPresent = false;
+            trolleyPresent = true;
+            presentObject = collider;
         }
     }
-
     private void spawnTool()
     {
-        if (trolleyPresent && presentObject.GetComponentInChildren<Trolley>().holdingPlayer)
-        
-        {
-            Surface surface = presentObject.GetComponentInChildren<Surface>();
-            if (surface != null)
-            {
-                if (surface.placedTool != null) return;
-                var go = Instantiate(toolToSpawn, surface.toolSlot);
-                go.transform.localPosition = Vector3.zero;
-                surface.placedTool = go;
-                AudioManager.instance.PlaySFX(interactSound);
-            }
-        }
+        if (!trolleyPresent) return;
+        if (presentObject == null) return;
+        Trolley trolley = presentObject.GetComponentInChildren<Trolley>();
+        if (trolley == null) return;
+
+        if (!trolley.holdingPlayer) return;
+
+        Surface surface = presentObject.GetComponentInChildren<Surface>();
+        if (surface == null) return;
+
+        if (surface.placedTool != null) return;
+
+        var go = Instantiate(toolToSpawn, surface.toolSlot);
+        go.transform.localPosition = Vector3.zero;
+        surface.placedTool = go;
+
+        AudioManager.instance.PlaySFX(interactSound);
     }
 }

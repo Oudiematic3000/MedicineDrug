@@ -125,7 +125,8 @@ public class Trolley : Tool
         trolleyBody.parent.SetParent(null);
 
         trolleyRB = trolleyBody.parent.gameObject.AddComponent<Rigidbody>();
-        trolleyRB.mass = 50f;
+        trolleyRB.mass = 200f;
+        trolleyRB.centerOfMass = new Vector3(0, -0.5f, 0);
         trolleyRB.constraints = RigidbodyConstraints.FreezeRotationX| RigidbodyConstraints.FreezeRotationZ;
         
 
