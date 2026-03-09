@@ -109,6 +109,8 @@ public class Player : MonoBehaviour, IGameplayActions
     
     public void OnInteract(InputAction.CallbackContext context)
     {
+        if (GameManager.instance.gamePaused) return;
+
         if (context.performed)
         {
             grabHitbox.InteractAction(true, this);
@@ -125,13 +127,17 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnLock(InputAction.CallbackContext context)
     {
+        if (GameManager.instance.gamePaused) return;
+
         if (context.performed) locked = true;
         else if(context.canceled)locked = false;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (GameManager.instance.gamePaused) return;
+
+        if (context.performed)
         moveInput = context.ReadValue<Vector2>();
         if (context.canceled) moveInput = Vector2.zero;
         dust.Play();
@@ -139,7 +145,9 @@ public class Player : MonoBehaviour, IGameplayActions
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        if(!context.performed)return;
+        if (GameManager.instance.gamePaused) return;
+
+        if (!context.performed)return;
         if ((heldTool&& (!heldTool.GetComponentInChildren<Trolley>() && !heldTool.GetComponentInChildren<GurneyHandle>()))||!heldTool)
         {
             grabHitbox.PickupAction(this);
@@ -166,6 +174,8 @@ public class Player : MonoBehaviour, IGameplayActions
 
     void Move()
     {
+        if (GameManager.instance.gamePaused) return;
+
         anim.SetFloat("speed", moveInput.magnitude);
         if (moveInput == Vector2.zero) return;
 

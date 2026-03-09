@@ -7,12 +7,24 @@ public class Surgery : Interactable
 {
     public OperationQueueUI operationQueue;
     Player lastOperator;
-    
+    public bool allOperations = false;
+    public GurneyBody body;
     void Start()
     {
         
     }
+    public void AllOperationsComplete()
+    {
+        BoxCollider[] colliders = body.GetComponentsInChildren<BoxCollider>();
 
+        int exitWallLayer = LayerMask.NameToLayer("ExitWall");
+
+        foreach (var col in colliders)
+        {
+            col.excludeLayers = 1 << exitWallLayer;
+        }
+        body.GetComponent<BoxCollider>().excludeLayers = 1 << exitWallLayer;
+    }
     public void StartQueue()
     {
         if (operationQueue != null) return;
@@ -26,7 +38,6 @@ public class Surgery : Interactable
         if (player.isDirty) return;
         if (!AneMachine.instance.depleted)
         {
-            //print("SurgeryInteract toolNeeded: " + template.toolNeeded + " ToolHeld: " + player.heldTool.template);
             lastOperator = player;
             base.OnInteract(action, player);
             

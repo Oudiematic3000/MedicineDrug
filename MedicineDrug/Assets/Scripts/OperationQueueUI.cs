@@ -12,7 +12,7 @@ public class OperationQueueUI : MonoBehaviour
     public List<OperationBubble> operationBubblesList = new List<OperationBubble>();
     public Vector3 placement = new Vector3(0.3f, 6f, 0);
     public float scalar=1f;
-    public Interactable owner;
+    public Surgery owner;
     void Start()
     {
         foreach (Transform t in transform)
@@ -31,7 +31,7 @@ public class OperationQueueUI : MonoBehaviour
     {
         this.pool = pool;
     }
-    public void Init(Interactable owner)
+    public void Init(Surgery owner)
     {
         this.owner = owner;
     }
@@ -47,7 +47,7 @@ public class OperationQueueUI : MonoBehaviour
         var topBubble = operationBubbles.Peek();
         operationBubbles.Dequeue();
         Destroy(topBubble.gameObject);
-        if (operationBubbles.Count <= 0) return;
+        if (operationBubbles.Count <= 0) { owner.AllOperationsComplete(); return; }
         operationBubbles.Peek().Run();
         owner.template.toolNeeded=GetToolNeeded();
 
