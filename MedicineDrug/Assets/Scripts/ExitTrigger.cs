@@ -17,6 +17,7 @@ public class ExitTrigger : MonoBehaviour
     {
         if (other.GetComponentInChildren<GurneyBody>() == gurneyBody)
         {
+            if(gurneyBody)
             gurneyBody.inExitSpace=false;
             gurneyBody = null;
             

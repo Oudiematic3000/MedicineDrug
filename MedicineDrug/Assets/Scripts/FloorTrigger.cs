@@ -4,6 +4,7 @@ public class FloorTrigger : MonoBehaviour
 {
     public bool score;
     public AudioClip[] screams;
+    public AudioClip pointSound;
     
     private void OnTriggerExit(Collider other)
     {
@@ -11,6 +12,7 @@ public class FloorTrigger : MonoBehaviour
         if (score)
         {
             GameManager.instance.AddScore();
+            AudioManager.instance.PlaySFX(pointSound, 0.8f);
         }
         else
         {
