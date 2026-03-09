@@ -9,11 +9,11 @@ public class Surgery : Interactable
     Player lastOperator;
     public bool allOperations = false;
     public GurneyBody body;
-    public ParticleSystem bloodEffect;
+    public ParticleSystem bloodEffect, smallBloodEffect;
     public Canvas canvas;
     public AudioClip heartMonitor, suffering;
     public GameObject heart, lung, intestine;
-
+    public float spawnForce=10f;
     void Start()
     {
         
@@ -89,13 +89,12 @@ public class Surgery : Interactable
         organs[0] = heart;
         organs[1] = lung;
         organs[2] = intestine;
-        //Debug.Log("burstOrgans");
         
-        Vector3 spawnForce = new Vector3(Random.Range(1000.0f, 2000.0f), Random.Range(1000.0f, 2000.0f), Random.Range(1000.0f, 2000.0f));
+        Vector3 spawnDirection = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f))*spawnForce;
         GameObject newOrgan = organs[Random.Range(0, 3)];
-        Instantiate(newOrgan, transform.position + Vector3.up, Quaternion.identity);
-        newOrgan.GetComponent<Rigidbody>().AddForce(spawnForce, ForceMode.Impulse);
-
+        var newSpawn = Instantiate(newOrgan, transform.position + (Vector3.up*1.2f), Quaternion.identity);
+        newSpawn.GetComponent<Rigidbody>().AddForce(spawnDirection, ForceMode.Impulse);
+        smallBloodEffect.Play();
     }
    
 }
