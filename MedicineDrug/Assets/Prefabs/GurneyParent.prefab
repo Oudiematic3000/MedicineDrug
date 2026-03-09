@@ -150,7 +150,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5064,6 +5064,10 @@ PrefabInstance:
       propertyPath: body
       value: 
       objectReference: {fileID: 5002929324721971225}
+    - target: {fileID: 6734595674788627573, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
+      propertyPath: bloodEffect
+      value: 
+      objectReference: {fileID: 6200008657128488690}
     - target: {fileID: 8477528835351489463, guid: b8c4b4482ffa0e246b4a9507a14c2bd6, type: 3}
       propertyPath: gurneyRB
       value: 

@@ -9,6 +9,7 @@ public class Surgery : Interactable
     Player lastOperator;
     public bool allOperations = false;
     public GurneyBody body;
+    public ParticleSystem bloodEffect;
     void Start()
     {
         
@@ -47,6 +48,7 @@ public class Surgery : Interactable
     {
         operationQueue.DequeueOperation();
         lastOperator.IncrementOperation();
+        if(lastOperator.isDirty) bloodEffect.Play();
     }
    
 }
