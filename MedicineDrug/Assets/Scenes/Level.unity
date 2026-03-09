@@ -7117,6 +7117,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2225647265943583523, guid: cf87415e093390843bda37921db77e12, type: 3}
+      propertyPath: lung
+      value: 
+      objectReference: {fileID: 3032668033130748021, guid: 6aebce404e2fa2b4abd6c2696e0fbe7b, type: 3}
+    - target: {fileID: 2225647265943583523, guid: cf87415e093390843bda37921db77e12, type: 3}
+      propertyPath: heart
+      value: 
+      objectReference: {fileID: 8011253749129047602, guid: 20464f888599caf4986ef9f62ccab885, type: 3}
+    - target: {fileID: 2225647265943583523, guid: cf87415e093390843bda37921db77e12, type: 3}
+      propertyPath: intestine
+      value: 
+      objectReference: {fileID: 2067939457232562340, guid: c3ae543bffa6a4745895d02d7493fa67, type: 3}
     - target: {fileID: 2272839879078669642, guid: cf87415e093390843bda37921db77e12, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.1126494
