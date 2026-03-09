@@ -7,13 +7,15 @@ public class Sink : Interactable
     public override void OnInteract(bool action, Player player)
     {
         if (!player.isDirty) return;
-        base.OnInteract(action, player);
         this.player = player;
+        base.OnInteract(action, player);
+
     }
-    
-    
+
+
     public override void OnComplete()
     {
+        if (player == null) return;
         player.ResetOperation();
         player.sparkleEffect();
     }
