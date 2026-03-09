@@ -47,11 +47,12 @@ public class OperationQueueUI : MonoBehaviour
         var topBubble = operationBubbles.Peek();
         operationBubbles.Dequeue();
         Destroy(topBubble.gameObject);
+        owner.interacting = false;
+        owner.progress = 0;
         if (operationBubbles.Count <= 0) { owner.AllOperationsComplete(); return; }
         operationBubbles.Peek().Run();
         owner.template.toolNeeded=GetToolNeeded();
-        owner.interacting = false;
-        owner.progress = 0;
+    
     }
     public void GenerateQueue()
     {

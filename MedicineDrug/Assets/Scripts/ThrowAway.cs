@@ -7,9 +7,9 @@ public class ThrowAway : Interactable
     {
         this.player = player;
 
-        if (!this.player.heldTool)
+        if (!player.heldTool)
         {
-            player = null;
+            this.player = null;
             return;
         }
         base.OnInteract(action, player);
