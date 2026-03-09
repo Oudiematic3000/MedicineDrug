@@ -35,7 +35,7 @@ public class DrawerDispense : MonoBehaviour
         {
             presentObject = trigger.GetComponent<TriggerLogicD>().triggeredCollider;
         
-            if (presentObject.name == "SurgTrolley")
+            if (presentObject.GetComponentInChildren<Trolley>())
             {
                 trolleyPresent = true;
             }
